@@ -1,8 +1,9 @@
-(function (){
+var Backbone = require('backbone');
+var $ = require('jquery');
+Backbone.$ = $;
+var Miner = require('./src/js/Miner.js');
 
-  var Backbone = require('backbone');
-  var $ = require('jquery');
-  Backbone.$ = $;
-
-
-}());
+console.log(Miner);
+var person = Backbone.Collection.extend({
+  model: Miner
+});
