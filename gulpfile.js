@@ -4,6 +4,13 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
+var watch = require('gulp-watch');
+
+
+var paths = {
+  scripts: ['src/js/**/*.js','app.js']
+};
+
 
 var getBundleName = function () {
   var version = require('./package.json').version;
@@ -12,7 +19,7 @@ var getBundleName = function () {
   return name + '.' + 'min';
 };
 
-gulp.task('dev', function() {
+gulp.task('compile', function() {
 
   var bundler = browserify({
     entries: ['./app.js'],
@@ -33,3 +40,11 @@ gulp.task('dev', function() {
 
   return bundle();
 });
+
+// Rerun the task when a file changes
+gulp.task('watch', function() {
+  gulp.watch(paths.scripts, ['compile']);
+});
+
+// The default task (called when you run `gulp` from cli)
+gulp.task('default', ['watch', 'scripts', 'images']);
