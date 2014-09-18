@@ -1,8 +1,9 @@
 var Backbone = require('backbone');
 
 module.exports.Miner = Backbone.Model.extend({
+   urlRoot: '/miner',
    defaults: {
-        'name': 'John Doe',
+        'name': '',
         'model': '',
         'hashRate': '',
         'powerUsage': '',

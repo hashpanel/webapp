@@ -49,7 +49,6 @@ gulp.task('compilejs', function() {
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-  livereload.listen();
   gulp.watch(paths.scripts, ['compilejs']).on('change', livereload.changed);
 
 });
