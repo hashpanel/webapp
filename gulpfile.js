@@ -15,7 +15,7 @@ var getBundleName = function () {
 gulp.task('dev', function() {
 
   var bundler = browserify({
-    entries: ['./src/js/app.js'],
+    entries: ['./app.js'],
     debug: true
   });
 
