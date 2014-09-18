@@ -26,6 +26,9 @@ gulp.task('compilejs', function() {
     debug: true
   });
 
+
+//#TODO Error HANDLING
+
   var bundle = function() {
     return bundler
       .bundle()
@@ -35,7 +38,6 @@ gulp.task('compilejs', function() {
         // Add transformation tasks to the pipeline here.
       .pipe(uglify())
       .pipe(sourcemaps.write('./'))
-      .on('error', function (err){ return err;}) //error dont quit
       .pipe(gulp.dest('./dist/js/'));
   };
 
