@@ -19,7 +19,7 @@ var getBundleName = function () {
   return name + '.' + 'min';
 };
 
-gulp.task('compile', function() {
+gulp.task('compilejs', function() {
 
   var bundler = browserify({
     entries: ['./app.js'],
@@ -47,4 +47,4 @@ gulp.task('watch', function() {
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['watch', 'scripts', 'images']);
+gulp.task('default', ['watch', 'compilejs']);
