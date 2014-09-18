@@ -1,12 +1,15 @@
 var browserify = require('browserify');
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var watch = require('gulp-watch');
-
-
+var livereload = require('gulp-livereload');
+var express = require('express');
+var app = express();
+var path        = require('path');
 var paths = {
   scripts: ['src/js/**/*.js','app.js']
 };
@@ -46,8 +49,17 @@ gulp.task('compilejs', function() {
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-  gulp.watch(paths.scripts, ['compilejs']);
+  livereload.listen();
+  gulp.watch(paths.scripts, ['compilejs']).on('change', livereload.changed);
+
 });
 
+gulp.task('server', function() {
+  app.use(express.static(path.resolve('./')));
+  app.listen(1337);
+  gutil.log('Listening on port: 1337');
+});
+
+
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['watch', 'compilejs']);
+gulp.task('default', ['watch', 'compilejs', 'server']);
