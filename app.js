@@ -1,7 +1,8 @@
-var $ = require('jquery')(window);
-var Backbone = require('backbone');
-Backbone.$ = $;
+(function (){
 
-var x,y,z;
-x = "foo";
-console.log(x);
+  var Backbone = require('backbone');
+  var $ = require('jquery');
+  Backbone.$ = $;
+
+
+}());
