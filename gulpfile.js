@@ -33,8 +33,9 @@ gulp.task('compilejs', function() {
       .pipe(buffer())
       .pipe(sourcemaps.init({loadMaps: true}))
         // Add transformation tasks to the pipeline here.
-        .pipe(uglify())
+      .pipe(uglify())
       .pipe(sourcemaps.write('./'))
+      .on('error', function (err){ return err;}) //error dont quit
       .pipe(gulp.dest('./dist/js/'));
   };
 
@@ -43,7 +44,7 @@ gulp.task('compilejs', function() {
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-  gulp.watch(paths.scripts, ['compile']);
+  gulp.watch(paths.scripts, ['compilejs']);
 });
 
 // The default task (called when you run `gulp` from cli)
