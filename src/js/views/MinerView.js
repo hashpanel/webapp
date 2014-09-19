@@ -2,6 +2,10 @@ var Backbone = require('backbone');
 var Miner = require('../Miner.js');
 var _ = require('lodash');
 
+_.templateSettings = {
+  interpolate: /\{\{(.+?)\}\}/g
+};
+
 module.exports.MinerView = Backbone.Collection.extend({
   tagName: "<tr>",
   initialize: function() {

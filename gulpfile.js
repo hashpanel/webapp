@@ -55,8 +55,8 @@ gulp.task('watch', function() {
 
 gulp.task('server', function() {
   app.use(express.static(path.resolve('./')));
-  app.listen(1337);
-  gutil.log('Listening on port: 1337');
+  app.listen(8000);
+  gutil.log('Listening on port: 8000');
 });
 
 
