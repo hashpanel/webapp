@@ -15,7 +15,9 @@ module.exports.MinerView = Backbone.Collection.extend({
   template: _.template(
       "<tr><td>{{name}}</td>" +
            "<td>{{group}}</td>" +
-           "<td>{{hashRate}}</td></tr>"
+           "<td>{{hashRate}}</td>" +
+           "<td><i class='fa fa-edit fa-fw'></i>" +
+           "<i style ='color:gray' class='fa fa-wrench fa-fw'></i></td>"
       ),
   render: function() {
     this.$el.html(this.template(this.model.toJSON()));
