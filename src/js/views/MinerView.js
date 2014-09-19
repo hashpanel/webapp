@@ -2,9 +2,7 @@ var Backbone = require('backbone');
 var Miner = require('../Miner.js');
 var _ = require('lodash');
 
-_.templateSettings = {
-  interpolate: /\{\{(.+?)\}\}/g
-};
+_.templateSettings.interpolate = /\{\{(.+?)\}\}/g;
 
 module.exports = Backbone.View.extend({
   tagName: "<tr>",
@@ -13,7 +11,8 @@ module.exports = Backbone.View.extend({
     this.listenTo(this.model, 'destroy', this.render);
   },
   template: _.template(
-      "<td>{{name}}</td>" +
+           "<td>{{powerUsage}}</td>" +
+           "<td>{{name}}</td>" +
            "<td>{{group}}</td>" +
            "<td>{{hashRate}}</td>" +
            "<td><i class='fa fa-edit fa-fw'></i>" +
