@@ -13,5 +13,24 @@ var aView = new MinerView({model:a});
 //var Servers = new MinerCollection.Miners();
 console.log(MinerCollection);
 
+var app = Backbone.Router.extend({
+
+  routes: {
+    "index":             "",
+    "miner/:miner":      "edit",
+    "miner/new":         "new",
+    "/miner/:id/status": "status"
+  },
+
+  edit: function() {
+  },
+
+  new: function() {
+  },
+
+  status: function(id) {
+  }
+
+});
 
  $("#miners").append(aView.render().el);
