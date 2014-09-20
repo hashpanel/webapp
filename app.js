@@ -11,18 +11,21 @@ var MinerView = require('./src/js/views/MinerView.js');
 var a =  new Miner ({'name':'Pluto','group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
 var aView = new MinerView({model:a});
 //var Servers = new MinerCollection.Miners();
-console.log(MinerCollection);
 
-var app = Backbone.Router.extend({
+var AppRouter = Backbone.Router.extend({
 
   routes: {
-    "index":             "",
+    "":             "",
     "miner/:miner":      "edit",
     "miner/new":         "new",
     "/miner/:id/status": "status"
   },
-
-  edit: function() {
+  index: function () {
+    console.log("sanity check");
+  },
+  edit: function(miner) {
+    console.log("foo");
+    this.navigate("miner#"+miner);
   },
 
   new: function() {
@@ -32,5 +35,7 @@ var app = Backbone.Router.extend({
   }
 
 });
+var app = new AppRouter();
+Backbone.history.start();
 
  $("#miners").append(aView.render().el);
