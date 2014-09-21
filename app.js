@@ -12,16 +12,19 @@ var a =  new Miner ({'name':'Pluto','group':'Solar','hashRate':'6 G/HS','powerUs
 var aView = new MinerView({model:a});
 //var Servers = new MinerCollection.Miners();
 
-var AppRouter = Backbone.Router.extend({
+var AppRouter = new (Backbone.Router.extend({
 
   routes: {
-    "":             "",
+    "index":             "",
     "miner/:miner":      "edit",
     "miner/new":         "new",
     "/miner/:id/status": "status"
   },
   index: function () {
     console.log("sanity check");
+    $("#miners").append(aView.render().el);
+    console.log("hi");
+
   },
   edit: function(miner) {
     console.log("foo");
@@ -32,10 +35,15 @@ var AppRouter = Backbone.Router.extend({
   },
 
   status: function(id) {
+  },
+  start: function(){
+    Backbone.history.start({pushState: true});
   }
-
+}))();
+$(function(){
+  AppRouter.start();
+  AppRouter.index();
 });
-var app = new AppRouter();
-Backbone.history.start();
+
 
  $("#miners").append(aView.render().el);
