@@ -12,7 +12,7 @@ module.exports = Backbone.View.extend({
   },
   template: _.template(
            "<td>{{powerUsage}}</td>" +
-           "<td><a class='edit' href='/miner/new'>{{name}}</a></td>" +
+           "<td><a class='edit' href='/miner/edit.html?q={{id}}'>{{name}}</a></td>" +
            "<td>{{group}}</td>" +
            "<td>{{hashRate}}</td>" +
            "<td><i class='fa fa-edit fa-fw'></i>" +

@@ -8,7 +8,7 @@ var Miner = require('./src/js/Miner.js');
 var MinerCollection = require('./src/js/collections/MinerCollection.js');
 var MinerView = require('./src/js/views/MinerView.js');
 
-var a =  new Miner ({'name':'Pluto','group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
+var a =  new Miner ({'id': 3, 'name':'Pluto','group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
 var aView = new MinerView({model:a});
 //var Servers = new MinerCollection.Miners();
 
@@ -28,7 +28,7 @@ var AppRouter = new (Backbone.Router.extend({
   },
   edit: function(miner) {
     console.log("foo");
-    this.navigate("miner#"+miner);
+    this.navigate("miner#"+miner, {trigger: true});
   },
 
   new: function() {
