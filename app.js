@@ -1,5 +1,6 @@
 var Backbone = require('backbone');
 var $ = require('jquery');
+Backbone.LocalStorage = require("backbone.localstorage");
 Backbone.$ = $;
 /**
 Miners
@@ -9,9 +10,10 @@ var MinerCollection = require('./src/js/collections/MinerCollection.js');
 var MinerView = require('./src/js/views/MinerView.js');
 
 var a =  new Miner ({'id': 3, 'name':'Pluto','group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
-var aView = new MinerView({model:a});
-//var Servers = new MinerCollection.Miners();
 
+var aView = new MinerView({model:a});
+var Servers = new MinerCollection.Miners();
+Servers.add(a);
 var AppRouter = new (Backbone.Router.extend({
 
   routes: {
@@ -37,7 +39,7 @@ var AppRouter = new (Backbone.Router.extend({
   status: function(id) {
   },
   start: function(){
-    Backbone.history.start({pushState: true});
+    Backbone.history.start();//{pushState: true}
   }
 }))();
 $(function(){
