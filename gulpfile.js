@@ -38,10 +38,11 @@ gulp.task('compilejs', function() {
       .pipe(source(getBundleName() + '.js'))
       .pipe(buffer())
       .pipe(sourcemaps.init({loadMaps: true}))
-        // Add transformation tasks to the pipeline here.
       .pipe(uglify())
       .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest('./dist/js/'));
+      .pipe(gulp.dest('./dist/js/'))
+      .on('error', gutil.log)
+      .on('error', gutil.beep);
   };
 
   return bundle();
