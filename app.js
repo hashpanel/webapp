@@ -14,8 +14,8 @@ var Miner = require('./src/js/Miner.js');
 var MinerCollection = require('./src/js/collections/MinerCollection.js');
 var MinerView = require('./src/js/views/MinerView.js');
 
-var a =  new Miner ({'id': 3, 'name':'Pluto','group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
-var b =  new Miner ({'id': 4, 'name':'Mars','group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
+var a =  new Miner ({'id': 3, 'name':'Pluto','model': 'blade', 'group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
+var b =  new Miner ({'id': 4, 'name':'Mars', 'model': 'blade','group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
 
 var aView = new MinerView({model:a});
 var bView = new MinerView({model:b});

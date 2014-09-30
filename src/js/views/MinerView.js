@@ -1,7 +1,10 @@
 var Backbone = require('backbone');
 var Miner = require('../Miner.js');
 var _ = require('lodash');
+var Handlebars = require('handlebars');
+
 var form = require('../../../miner/form.hbs');
+var formTemplate = Handlebars.compile(form);
 
 _.templateSettings.interpolate = /\{\{(.+?)\}\}/g;
 
@@ -24,7 +27,7 @@ module.exports = Backbone.View.extend({
   },
   edit: function() {
     var miner = this.model.get("id");
-    this.$("#"+miner).parent().append(form);
+    this.$("#"+miner).parent().append(formTemplate(this.model.toJSON()));
   },
   registered: function () {
     console.log("registered");

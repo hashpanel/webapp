@@ -2,12 +2,15 @@
                             <form role="form">
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input class="form-control" placeholder="Server Name">
+                                    <input class="form-control" placeholder="{{name}}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Model: <b>{{model}}</b></label>
                                 </div>
                                 <div class="form-group">
                                     <label>Mining Pool</label>
                                     <select multiple class="form-control">
-                                        <option>DC</option>
+                                        <option>{{group}}</option>
                                         <option>Marvel</option>
                                         <option>Dark Horse</option>
                                         <option>NEW</option>
