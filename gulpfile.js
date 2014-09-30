@@ -5,18 +5,18 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
-var watch = require('gulp-watch');
+//var watch = require('gulp-watch');
 var livereload = require('gulp-livereload');
 var express = require('express');
 var app = express();
 var path        = require('path');
+
 var paths = {
   scripts: ['src/js/**/*.js','app.js']
 };
 
 
 var getBundleName = function () {
-  var version = require('./package.json').version;
   var name = require('./package.json').name;
   //return version + '.' + name + '.' + 'min';
   return name + '.' + 'min';
