@@ -18,7 +18,7 @@ var AppRouter = new (Backbone.Router.extend({
 
   routes: {
     "index":             "",
-    "miner/:miner":      "edit",
+    "edit/:miner":      "edit",
     "miner/new":         "new",
     "/miner/:id/status": "status"
   },
@@ -42,9 +42,13 @@ var AppRouter = new (Backbone.Router.extend({
     Backbone.history.start();//{pushState: true}
   }
 }))();
+
+
 $(function(){
-  AppRouter.start();
-  AppRouter.index();
+
+  var app = new AppRouter();
+  app.start();
+  app.index();
 });
 
 
