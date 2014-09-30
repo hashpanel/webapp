@@ -2,7 +2,7 @@ var Backbone = require('backbone');
 var $ = require('jquery');
 Backbone.LocalStorage = require("backbone.localstorage");
 Backbone.$ = $;
-var Handlebars = require('handlebars')
+var Handlebars = require('handlebars');
 
 /** templates **/
 var form = require('./miner/form.hbs');
@@ -21,30 +21,20 @@ var aView = new MinerView({model:a});
 var bView = new MinerView({model:b});
 var Servers = new MinerCollection.Miners();
 Servers.add(a);
+
 var AppRouter = new (Backbone.Router.extend({
 
   routes: {
-    "index":             "",
-    "miner/:id":             "edit",
-    "miner/new":         "new",
-    "/miner/:id/status": "status"
+    "index":            "",
+    "miner/:id":        "edit",
+    "miner/new":        "new",
+    "miner/:id/status": "status"
   },
   index: function () {
-    console.log("sanity check");
     $("#miners").append(aView.render().el);
-    console.log("hi");
-
   },
-  edit: function(miner) {
-    console.log("foo",miner);
-    $("#"+miner).parent().append(form);
-    this.navigate("miner/"+miner, {trigger: false});
-    console.log(form);
-  },
-
   new: function() {
   },
-
   status: function() {
   },
   start: function(){
