@@ -13,7 +13,7 @@ var app = express();
 var path        = require('path');
 
 var paths = {
-  scripts: ['src/js/**/*.js','app.js']
+  interest: ['src/js/**/*.js','app.js','miner/**.hbs']
 };
 
 
@@ -51,7 +51,7 @@ gulp.task('compilejs', function() {
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-  gulp.watch(paths.scripts, ['compilejs']).on('change', livereload.changed);
+  gulp.watch(paths.interest, ['compilejs']).on('change', livereload.changed);
 
 });
 
