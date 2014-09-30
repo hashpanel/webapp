@@ -37,7 +37,7 @@ var AppRouter = new (Backbone.Router.extend({
   },
   edit: function(miner) {
     console.log("foo",miner);
-    $("#app-window").append(form);
+    $("#"+miner).parent().append(form);
     this.navigate("miner/"+miner, {trigger: false});
     console.log(form);
   },
