@@ -2,6 +2,11 @@ var Backbone = require('backbone');
 var $ = require('jquery');
 Backbone.LocalStorage = require("backbone.localstorage");
 Backbone.$ = $;
+var Handlebars = require('handlebars')
+
+/** templates **/
+var form = require('./miner/form.hbs');
+
 /**
 Miners
 **/
@@ -32,8 +37,9 @@ var AppRouter = new (Backbone.Router.extend({
   },
   edit: function(miner) {
     console.log("foo",miner);
-
-    this.navigate("miner/"+miner, {trigger: true});
+    $("#app-window").append(form);
+    this.navigate("miner/"+miner, {trigger: false});
+    console.log(form);
   },
 
   new: function() {

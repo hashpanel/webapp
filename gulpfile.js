@@ -6,6 +6,7 @@ var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 //var watch = require('gulp-watch');
+var stringify = require('stringify');
 var livereload = require('gulp-livereload');
 var express = require('express');
 var app = express();
@@ -27,7 +28,7 @@ gulp.task('compilejs', function() {
   var bundler = browserify({
     entries: ['./app.js'],
     debug: true
-  });
+  }).transform(stringify(['.hbs', '.handlebars']));
 
 
 //#TODO Error HANDLING
