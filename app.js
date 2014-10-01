@@ -14,24 +14,35 @@ var Miner = require('./src/js/Miner.js');
 var MinerCollection = require('./src/js/collections/MinerCollection.js');
 var MinerView = require('./src/js/views/MinerView.js');
 
-var a =  new Miner ({'id': 3, 'name':'Pluto','model': 'blade', 'group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
-var b =  new Miner ({'id': 4, 'name':'Mars', 'model': 'blade','group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
-
-var aView = new MinerView({model:a});
-var bView = new MinerView({model:b});
-var Servers = new MinerCollection.Miners();
-Servers.add(a);
 
 var AppRouter = new (Backbone.Router.extend({
+  initialize: function () {
+    var a =  new Miner ({'id': 3, 'name':'Pluto','model': 'blade', 'group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
+    var b =  new Miner ({'id': 4, 'name':'Mars', 'model': 'blade','group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
 
+    var aView = new MinerView({model:a});
+    var bView = new MinerView({model:b});
+    var Servers = new MinerCollection.Miners();
+    Servers.add(a);
+    Servers.add(b);
+     $("#miners").append(aView.render().el);
+     $("#miners").append(bView.render().el);
+  },
   routes: {
-    "index":            "",
-    "miner/:id":        "edit",
+    "index":      "",
+    "miner/:id":  "edit",
     "new":        "new",
     "miner/:id/status": "status"
   },
-  index: function () {
-    $("#miners").append(aView.render().el);
+  index: function() {
+    //$("#miners").append(aView.render().el);
+  },
+  events: {
+  "click td": "edit"
+  },
+  edit: function(id) {
+    console.log(id);
+    $(".panel-body").html(formTemplate(id));
   },
   new: function() {
     console.log("clicked");
@@ -48,7 +59,3 @@ var AppRouter = new (Backbone.Router.extend({
 $(function(){
   AppRouter.start();
 });
-
-
- $("#miners").append(aView.render().el);
- $("#miners").append(bView.render().el);

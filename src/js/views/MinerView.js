@@ -21,9 +21,6 @@ module.exports = Backbone.View.extend({
            "<td><i class='fa fa-edit fa-fw'></i>" +
            "<i style ='color:gray' class='fa fa-wrench fa-fw'></i></td>"
       ),
-  events: {
-  "click td": "edit",
-  },
   edit: function() {
     var miner = this.model.get("id");
     this.$("#"+miner).parent().parent().parent().parent().html(formTemplate(this.model.toJSON()));
