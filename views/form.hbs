@@ -1,34 +1,38 @@
-
-                            <form role="form">
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input class="form-control" value="{{name}}">
-                                </div>
-                                <div class="form-group">
-                                    <label>Model: <h3> {{model}}</h3></label>
-                                </div>
-                                <div class="form-group">
-                                    <label>Mining Pool</label>
-                                    <select multiple class="form-control">
-                                        <option>{{group}}</option>
-                                        <option>Marvel</option>
-                                        <option>Dark Horse</option>
-                                        <option>NEW</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Server Address</label>
-                                    <input class="form-control" placeholder="ex. 158.0.8.1">
-                                </div>
-                                <div class="form-group">
-                                    <label>Power</label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked>On
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">Off
-                                    </label>
-                                </div>
-                                <button type="Save" class="btn btn-default">Save</button>
-                                <button type="Reset" class="btn btn-default">Reset</button>
-                            </form>
+<div class="row">
+  <div class="col-lg-6">
+    <form role="form">
+        <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" value="{{name}}" placeholder="Server Name">
+        </div>
+        <div class="form-group">
+            <label>Model:</label>
+            <input class="form-control" value="{{model}}" placeholder="Server Model">
+        </div>
+        <div class="form-group">
+            <label>Mining Pool</label>
+            <select multiple class="form-control">
+                <option>{{group}}</option>
+                <option>Marvel</option>
+                <option>Dark Horse</option>
+                <option>NEW</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Server Address</label>
+            <input class="form-control" placeholder="ex. 158.0.8.1">
+        </div>
+        <div class="form-group">
+            <label>Power</label>
+            <label class="radio-inline">
+                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked>On
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">Off
+            </label>
+        </div>
+        <button type="Save" class="btn btn-success">Save</button>
+        <button type="Reset" class="btn btn-danger">Reset</button>
+      </form>
+    </div>
+</div>
