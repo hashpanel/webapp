@@ -3,9 +3,9 @@ var $ = require('jquery');
 Backbone.LocalStorage = require("backbone.localstorage");
 Backbone.$ = $;
 var Handlebars = require('handlebars');
-
 /** templates **/
 var form = require('./miner/form.hbs');
+var formTemplate = Handlebars.compile(form);
 
 /**
 Miners
@@ -27,13 +27,15 @@ var AppRouter = new (Backbone.Router.extend({
   routes: {
     "index":            "",
     "miner/:id":        "edit",
-    "miner/new":        "new",
+    "new":        "new",
     "miner/:id/status": "status"
   },
   index: function () {
     $("#miners").append(aView.render().el);
   },
   new: function() {
+    console.log("clicked");
+    $("#appbody").html(formTemplate({}));
   },
   status: function() {
   },
