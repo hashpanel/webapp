@@ -13,7 +13,7 @@ var app = express();
 var path        = require('path');
 
 var paths = {
-  interest: ['src/js/**/*.js','app.js','miner/**.hbs']
+  interest: ['src/js/**/*.js','app.js','views/**.hbs']
 };
 
 
