@@ -14,8 +14,7 @@ var Miner = require('./src/js/Miner.js');
 var MinerCollection = require('./src/js/collections/MinerCollection.js');
 var MinerView = require('./src/js/views/MinerView.js');
 
-
-var AppRouter = new (Backbone.Router.extend({
+var AppView = Backbone.View.extend({
   initialize: function () {
     var a =  new Miner ({'id': 3, 'name':'Pluto','model': 'blade', 'group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
     var b =  new Miner ({'id': 4, 'name':'Mars', 'model': 'blade','group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
@@ -27,6 +26,13 @@ var AppRouter = new (Backbone.Router.extend({
     Servers.add(b);
      $("#miners").append(aView.render().el);
      $("#miners").append(bView.render().el);
+  },
+});
+
+
+var AppRouter = new (Backbone.Router.extend({
+  initialize: function () {
+    var App = new AppView();
   },
   routes: {
     "index":      "",
