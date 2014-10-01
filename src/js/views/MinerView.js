@@ -1,5 +1,4 @@
 var Backbone = require('backbone');
-var Miner = require('../Miner.js');
 var _ = require('lodash');
 var Handlebars = require('handlebars');
 
@@ -23,11 +22,11 @@ module.exports = Backbone.View.extend({
            "<i style ='color:gray' class='fa fa-wrench fa-fw'></i></td>"
       ),
   events: {
-  "click td":          "edit",
+  "click td": "edit",
   },
   edit: function() {
     var miner = this.model.get("id");
-    this.$("#"+miner).parent().append(formTemplate(this.model.toJSON()));
+    this.$("#"+miner).parent().parent().parent().parent().html(formTemplate(this.model.toJSON()));
   },
   registered: function () {
     console.log("registered");
