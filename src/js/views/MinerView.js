@@ -2,7 +2,7 @@ var Backbone = require('backbone');
 var _ = require('lodash');
 var Handlebars = require('handlebars');
 
-var form = require('../../../miner/form.hbs');
+var form = require('../../../views/form.hbs');
 var formTemplate = Handlebars.compile(form);
 
 _.templateSettings.interpolate = /\{\{(.+?)\}\}/g;

@@ -4,7 +4,7 @@ Backbone.LocalStorage = require("backbone.localstorage");
 Backbone.$ = $;
 var Handlebars = require('handlebars');
 /** templates **/
-var form = require('./miner/form.hbs');
+var form = require('./views/form.hbs');
 var formTemplate = Handlebars.compile(form);
 
 /**
