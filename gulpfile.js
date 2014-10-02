@@ -15,7 +15,8 @@ var path        = require('path');
 var paths = {
   interest: ['src/js/**/*.js','app.js','views/**.hbs']
 };
-
+//FIX STREAMS
+//https://github.com/gulpjs/gulp/blob/master/docs/recipes/combining-streams-to-handle-errors.md
 
 var getBundleName = function () {
   var name = require('./package.json').name;
