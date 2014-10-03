@@ -29,3 +29,4 @@ node_modules
 
 #ignore bower
 dist
+data
