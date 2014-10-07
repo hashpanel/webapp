@@ -8,12 +8,19 @@ var Handlebars = require('handlebars');
 var form = require('./views/form.hbs');
 var formTemplate = Handlebars.compile(form);
 
+
+//views
 var AppView = require('./src/js/views/AppView.js');
-var NewMinerView = require('./src/js/views/NewMinerView.js');
+var MinerView = require('./src/js/views/MinerView.js');
+var EditMiner = require('./src/js/views/EditMinerView.js');
+
+//models
+var Miner = require('./src/js/Miner.js');
 
 var AppRouter = new (Backbone.Router.extend({
   initialize: function () {
-    var App = new AppView();
+    this.App = new AppView();
+    console.log(this.App.Servers);
   },
   routes: {
     "index":      "",
@@ -25,16 +32,23 @@ var AppRouter = new (Backbone.Router.extend({
     //$("#miners").append(aView.render().el);
   },
   events: {
-  "click td": "edit"
+  "click td": "edit",
+  "click #save": "refresh"
+  },
+  refresh: function () {
+    console.log('refresh');
   },
   edit: function(id) {
-    console.log(id);
+    var item = this.App.Servers.get({'id':id});
+    console.log(item);
     //should pass in the actual modelID
-    $(".panel-body").html(formTemplate(id));
+    var existingView = new EditMiner({model:item});
+    //$(".panel-body").html(formTemplate(item.toJSON()));
   },
   new: function() {
     console.log("clicked");
-    var newMiner = new NewMinerView();
+    var blankMiner = new Miner();
+    var newView = new EditMiner({model:blankMiner});
   },
   status: function() {
   },
