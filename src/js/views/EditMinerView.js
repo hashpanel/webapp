@@ -7,14 +7,12 @@ var form = require('../../../views/form.hbs');
 var formTemplate = Handlebars.compile(form);
 
 var Miner = require('../Miner.js');
-var MinerCollection = require('../collections/MinerCollection.js');
-var MinerView = require('./MinerView.js');
+//var MinerView = require('./MinerView.js');
 
 module.exports = Backbone.View.extend({
   el: ".panel-body",
   initialize: function () {
-    var miner = new Miner();
-    this.$el.html(formTemplate({}));
+    this.$el.html(formTemplate(this.model.toJSON()));
   },
   events: {
     "click #save": "save"
@@ -22,5 +20,5 @@ module.exports = Backbone.View.extend({
   save: function save() {
     console.log("saved");
     this.trigger("saved");
-  }
+  },
 });
