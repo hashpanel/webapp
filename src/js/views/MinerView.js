@@ -22,8 +22,7 @@ module.exports = Backbone.View.extend({
            "<i style ='color:gray' class='fa fa-wrench fa-fw'></i></td>"
       ),
   edit: function() {
-    var miner = this.model.get("id");
-    this.$("#"+miner).parent().parent().parent().parent().html(formTemplate(this.model.toJSON()));
+    this.$("#appbody").html(formTemplate(this.model.toJSON()));
   },
   registered: function () {
     console.log("registered");
