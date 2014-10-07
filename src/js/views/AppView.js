@@ -17,7 +17,14 @@ module.exports = Backbone.View.extend({
     var Servers = new MinerCollection.Miners();
     Servers.add(a);
     Servers.add(b);
+    this.Servers = Servers;
      $("#miners").append(aView.render().el);
      $("#miners").append(bView.render().el);
+  },
+  events: {
+  "click #save": "refresh"
+  },
+  refresh: function () {
+    console.log('refresh');
   },
 });
