@@ -7,6 +7,8 @@ var form = require('../../../views/form.hbs');
 var formTemplate = Handlebars.compile(form);
 
 var Miner = require('../Miner.js');
+//views
+var AppView = require('./AppView.js');
 //var MinerView = require('./MinerView.js');
 
 module.exports = Backbone.View.extend({
@@ -19,6 +21,6 @@ module.exports = Backbone.View.extend({
   },
   save: function save() {
     console.log("saved");
-    this.trigger("saved");
+    Backbone.history.navigate("edit",{"trigger":true});
   },
 });
