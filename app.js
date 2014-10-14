@@ -17,11 +17,9 @@ var EditMiner = require('./src/js/views/EditMinerView.js');
 //models
 var Miner = require('./src/js/Miner.js');
 
+var App = new AppView();
+
 var AppRouter = new (Backbone.Router.extend({
-  initialize: function () {
-    this.App = new AppView();
-    console.log(this.App.Servers);
-  },
   routes: {
     "index":      "",
     "miner/:id":  "edit",
@@ -39,16 +37,14 @@ var AppRouter = new (Backbone.Router.extend({
     console.log('refresh');
   },
   edit: function(id) {
-    var item = this.App.Servers.get({'id':id});
-    console.log(item);
+    var item = App.Servers.get({'id':id});
     //should pass in the actual modelID
-    var existingView = new EditMiner({model:item});
-    //$(".panel-body").html(formTemplate(item.toJSON()));
+    new EditMiner({model:item});
   },
   new: function() {
     console.log("clicked");
     var blankMiner = new Miner();
-    var newView = new EditMiner({model:blankMiner});
+    new EditMiner({model:blankMiner});
   },
   status: function() {
   },
