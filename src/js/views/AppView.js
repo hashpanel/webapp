@@ -6,16 +6,21 @@ Backbone.$ = $;
 var Miner = require('../Miner.js');
 var MinerCollection = require('../collections/MinerCollection.js');
 var MinerView = require('./MinerView.js');
+var testdata = require('./../../../data/test.json');
 
 module.exports = Backbone.View.extend({
   initialize: function () {
 
-    var Servers = new MinerCollection.Miners();
+    var Servers = new MinerCollection();
     Servers.fetch({
       success: function (){
         Servers.each(function (data) {
+          console.log("Data from the model", data.attributes);
           //$("#miners").append(data.render().el);
-          console.log("Data from the model",data);
+          var miner = new Miner(data.attributes);
+          var view = new MinerView({model: miner}).render().el;
+          console.log(view);
+          $("miners").append(view);
         });
       }
     });
