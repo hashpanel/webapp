@@ -9,7 +9,6 @@ var formTemplate = Handlebars.compile(form);
 var Miner = require('../Miner.js');
 //views
 var AppView = require('./AppView.js');
-//var MinerView = require('./MinerView.js');
 
 module.exports = Backbone.View.extend({
   el: ".panel-body",
