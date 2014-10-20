@@ -27,7 +27,7 @@ var AppRouter = new (Backbone.Router.extend({
     "miner/:id/status": "status"
   },
   index: function() {
-    //$("#miners").append(aView.render().el);
+
   },
   events: {
   "click td": "edit",
