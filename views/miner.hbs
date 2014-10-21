@@ -1,0 +1,12 @@
+{{#if powerUsage }}
+  <td><i style ='color:green' class='fa fa-check fa-fw'></i></td>
+{{else}}
+  <td><i style ='color:red' class='fa fa-times fa-fw'></i></td>
+{{/if}}
+<td> <a class='edit' href='#miner/{{id}}' id='{{id}}' >{{name}}</a> </td>
+<td> {{group}} </td>
+<td> {{hashRate}} </td>
+<td>
+  <i class='fa fa-edit fa-fw'></i>
+  <i style ='color:gray' class='fa fa-wrench fa-fw'></i>
+</td>
