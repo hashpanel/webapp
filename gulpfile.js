@@ -24,12 +24,20 @@ var getBundleName = function () {
   return name + '.' + 'min';
 };
 
+function handleError(err) {
+  gutil.log(err.toString());
+  gutil.beep();
+  this.emit('end');
+}
+
 gulp.task('compilejs', function() {
 
   var bundler = browserify({
     entries: ['./app.js'],
     debug: true
-  }).transform(stringify(['.hbs', '.handlebars']));
+  }).on('error', gutil.log)
+    .on('error', gutil.beep)
+    .transform(stringify(['.hbs', '.handlebars']));
 
 
 //#TODO Error HANDLING
@@ -37,7 +45,9 @@ gulp.task('compilejs', function() {
   var bundle = function() {
     return bundler
       .bundle()
+      .on('error', handleError)
       .pipe(source(getBundleName() + '.js'))
+      .on('error', function(err){ console.log(err.message); })
       .pipe(buffer())
       .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(uglify())
