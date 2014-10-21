@@ -17,10 +17,10 @@ module.exports = Backbone.View.extend({
         Servers.each(function (data) {
           console.log("Data from the model", data);
           //$("#miners").append(data.render().el);
-          var miner = new Miner(data);
-          var view = new MinerView({model: miner.toJSON()});
+          var miner = new Miner(data.attributes);
+          var view = new MinerView({model: miner});
           console.log(view.render().el);
-          $("miners").append(view.render().el);
+          $("#miners").append(view.render().el);
         });
       }
     });
@@ -30,12 +30,13 @@ module.exports = Backbone.View.extend({
       var aView = new MinerView({model:a});
       var bView = new MinerView({model:b});
 
-      //Servers.add(a);
-      //Servers.add(b);
+      Servers.add(a);
+      Servers.add(b);
       //console.log(Servers);
-      //this.Servers = Servers;
+      this.Servers = Servers;
        $("#miners").append(aView.render().el);
        $("#miners").append(bView.render().el);
+
   },
   events: {
   "click #save": "refresh"
