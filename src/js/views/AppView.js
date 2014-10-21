@@ -15,28 +15,27 @@ module.exports = Backbone.View.extend({
     Servers.fetch({
       success: function (){
         Servers.each(function (data) {
-          console.log("Data from the model", data.attributes);
+          console.log("Data from the model", data);
           //$("#miners").append(data.render().el);
-          var miner = new Miner(data.attributes);
-          var view = new MinerView({model: miner}).render().el;
-          console.log(view);
-          $("miners").append(view);
+          var miner = new Miner(data);
+          var view = new MinerView({model: miner.toJSON()});
+          console.log(view.render().el);
+          $("miners").append(view.render().el);
         });
       }
     });
+      var a =  new Miner ({'id': 3, 'name':'Pluto','model': 'blade', 'group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
+      var b =  new Miner ({'id': 4, 'name':'Mars', 'model': 'blade','group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
 
-    var a =  new Miner ({'id': 3, 'name':'Pluto','model': 'blade', 'group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
-    var b =  new Miner ({'id': 4, 'name':'Mars', 'model': 'blade','group':'Solar','hashRate':'6 G/HS','powerUsage': 6});
+      var aView = new MinerView({model:a});
+      var bView = new MinerView({model:b});
 
-    var aView = new MinerView({model:a});
-    var bView = new MinerView({model:b});
-
-    //Servers.add(a);
-    //Servers.add(b);
-    //console.log(Servers);
-    this.Servers = Servers;
-     $("#miners").append(aView.render().el);
-     $("#miners").append(bView.render().el);
+      //Servers.add(a);
+      //Servers.add(b);
+      //console.log(Servers);
+      //this.Servers = Servers;
+       $("#miners").append(aView.render().el);
+       $("#miners").append(bView.render().el);
   },
   events: {
   "click #save": "refresh"
