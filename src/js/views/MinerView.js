@@ -3,8 +3,9 @@ var _ = require('lodash');
 var Handlebars = require('handlebars');
 
 var form = require('../../../views/form.hbs');
+var minerItem = require('../../../views/miner.hbs');
 var formTemplate = Handlebars.compile(form);
-
+var minerTemplate = Handlebars.compile(form);
 _.templateSettings.interpolate = /\{\{(.+?)\}\}/g;
 
 module.exports = Backbone.View.extend({
@@ -14,6 +15,12 @@ module.exports = Backbone.View.extend({
     this.listenTo(this.model, 'destroy', this.render);
   },
   template: _.template(
+           "{{#if powerUsage }}"+
+              "<td><i style ='color:green' class='fa fa-check fa-fw'></i></td>" +
+           "{{else}}"+
+              "<td><i style ='color:red' class='fa fa-times fa-fw'></i></td>" +
+           "{{/if}}" +
+           "<td><i style ='color:green' class='fa fa-check fa-fw'></i></td>" +
            "<td>{{powerUsage}}</td>" +
            "<td><a class='edit' href='#miner/{{id}}' id='{{id}}' >{{name}}</a></td>" +
            "<td>{{group}}</td>" +
