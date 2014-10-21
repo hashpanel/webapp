@@ -5,12 +5,13 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
-//var watch = require('gulp-watch');
+//var watchify = require('watchify');
 var stringify = require('stringify');
 var livereload = require('gulp-livereload');
 var express = require('express');
 var app = express();
-var path        = require('path');
+var path = require('path');
+
 
 var paths = {
   interest: ['src/js/**/*.js','app.js','views/**.hbs']
@@ -33,11 +34,15 @@ function handleError(err) {
 gulp.task('compilejs', function() {
 
   var bundler = browserify({
-    entries: ['./app.js'],
-    debug: true
-  }).on('error', gutil.log)
-    .on('error', gutil.beep)
-    .transform(stringify(['.hbs', '.handlebars']));
+        entries: ['./app.js'],
+        debug: true
+      })
+      .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+      .on('error', handleError);
+  //brow = temp variable
+  //var bundler = watchify(brow, watchify.args)
+
+  bundler.transform(stringify(['.hbs', '.handlebars']));
 
 
 //#TODO Error HANDLING
@@ -45,16 +50,14 @@ gulp.task('compilejs', function() {
   var bundle = function() {
     return bundler
       .bundle()
+      .on('error', gutil.log.bind(gutil, 'Browserify Error'))
       .on('error', handleError)
       .pipe(source(getBundleName() + '.js'))
-      .on('error', function(err){ console.log(err.message); })
       .pipe(buffer())
       .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(uglify())
       .pipe(sourcemaps.write('./'))
       .pipe(gulp.dest('./dist/js/'))
-      .on('error', gutil.log)
-      .on('error', gutil.beep);
   };
 
   return bundle();
