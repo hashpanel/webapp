@@ -2,11 +2,6 @@ var Backbone = require('backbone');
 var $ = require('jquery');
 Backbone.LocalStorage = require("backbone.localstorage");
 Backbone.$ = $;
-var Handlebars = require('handlebars');
-/** templates **/
-
-var form = require('./views/form.hbs');
-var formTemplate = Handlebars.compile(form);
 
 
 //views

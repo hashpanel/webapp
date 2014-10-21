@@ -6,7 +6,6 @@ Backbone.$ = $;
 var Miner = require('../Miner.js');
 var MinerCollection = require('../collections/MinerCollection.js');
 var MinerView = require('./MinerView.js');
-var testdata = require('./../../../data/test.json');
 
 module.exports = Backbone.View.extend({
   initialize: function () {
