@@ -13,7 +13,7 @@
             <label>Mining Pool</label>
             <select multiple class="form-control">
                 <option>NEW</option>
-                <option>{{group}}</option>
+                <option>{{host}}</option>
             </select>
         </div>
         <div class="form-group">
@@ -36,19 +36,26 @@
     <div class="col-lg-6"  id="server-details">
       <div class="panel panel-default">
           <div class="panel-heading">
-              <i class="fa fa-bell fa-fw"></i> Notifications Panel
+              <i class="fa fa-bell fa-fw"></i> Miner Details
           </div>
           <!-- /.panel-heading -->
           <div class="panel-body">
             <div class="list-group">
              <a href="#" class="list-group-item">
-                <i class="fa fa-money fa-fw"></i> Payment Received
-                <span class="pull-right text-muted small"><em>Yesterday</em>
+                <span>Device: {{device.name}}
+                </span>
+                <span>Manufacturer: {{device.manufacturer}}
+                </span>
+                <span>Hash Rate : {{device.hashRate}}
+                </span>
+                <span>CGMiner version: {{state.version.CGMiner}}
+                </span>
+                <span>API version: {{state.version.API}}
                 </span>
             </a>
             </div>
               <!-- /.list-group -->
-            <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+            <a href="#" class="btn btn-default btn-block">View More</a>
           </div>
           <!-- /.panel-body -->
       </div>
