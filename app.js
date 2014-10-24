@@ -44,7 +44,7 @@ var AppRouter = new (Backbone.Router.extend({
   status: function() {
   },
   start: function(){
-    Backbone.history.start();//{pushState: true}
+    Backbone.history.start({pushState: true});//{pushState: true}
   }
 }))();
 

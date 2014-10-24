@@ -6,28 +6,20 @@
             <input class="form-control" value="{{name}}" placeholder="Server Name">
         </div>
         <div class="form-group">
-            <label>Model:</label>
-            <input class="form-control" value="{{model}}" placeholder="Server Model">
+            <label>Pool</label>
+            <input class="form-control" value="{{host}}" placeholder="3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLF">
         </div>
         <div class="form-group">
-            <label>Mining Pool</label>
-            <select multiple class="form-control">
-                <option>NEW</option>
-                <option>{{host}}</option>
-            </select>
+            <label>Port:</label>
+            <input class="form-control" value="{{model}}" placeholder="4321">
         </div>
         <div class="form-group">
             <label>Server Address</label>
-            <input class="form-control" placeholder="ex. 158.0.8.1">
+            <input class="form-control">
         </div>
         <div class="form-group">
             <label>Power</label>
-            <label class="radio-inline">
-                <input type="radio" name="optionsRadiosInline" >On
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" >Off
-            </label>
+            <button type="off" class="btn">Power Off</button>
         </div>
         <a href="."><button type="Save" class="btn btn-success" id="save" >Save</button></a>
         <button type="Reset" class="btn btn-danger">Cancel</button>
@@ -46,7 +38,7 @@
                 </span>
                 <span>Manufacturer: {{device.manufacturer}}
                 </span>
-                <span>Hash Rate : {{device.hashRate}}
+                <span>Hash Rate : {{device.hashRate}} GH/S
                 </span>
                 <span>CGMiner version: {{state.version.CGMiner}}
                 </span>

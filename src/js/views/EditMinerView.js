@@ -14,15 +14,16 @@ module.exports = Backbone.View.extend({
   el: ".panel-body",
   initialize: function () {
     this.$el.html(formTemplate(this.model.toJSON()));
-    $("#show-history" ).click(function() {
-      $( "#history" ).toggle( "fast", function() {
-        // Animation complete.
-        console.log("show");
-        });
-    });
   },
   events: {
-    "click #save": "save"
+    "click #save": "save",
+    "click #show-history": "showHistory",
+  },
+  showHistory: function () {
+    $("#history").toggle( "fast", function() {
+      // Animation complete.
+      console.log("show");
+    });
   },
   save: function save() {
     console.log("saved");
