@@ -40,11 +40,12 @@ var AppRouter = new (Backbone.Router.extend({
     console.log("clicked");
     var blankMiner = new Miner();
     new EditMiner({model:blankMiner});
+    $("#server-details").hide();
   },
   status: function() {
   },
   start: function(){
-    Backbone.history.start({pushState: true});//{pushState: true}
+    Backbone.history.start();//{pushState: true}
   }
 }))();
 
