@@ -1,7 +1,7 @@
 var Backbone = require('backbone');
 
 module.exports = Backbone.Model.extend({
-   url: 'http://hashware-api.herokuapp.com/api/v1/miner',
+   urlRoot: 'http://hashware-api.herokuapp.com/api/v1/miner',
    defaults: {
     name: {
       type: 'string',
