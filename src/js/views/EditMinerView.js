@@ -13,6 +13,7 @@ var AppView = require('./AppView.js');
 module.exports = Backbone.View.extend({
   el: ".panel-body",
   initialize: function () {
+    //should pull this.model actually from server using URL HASH
     this.$el.html(formTemplate(this.model.toJSON()));
   },
   events: {
@@ -27,6 +28,6 @@ module.exports = Backbone.View.extend({
   },
   save: function save() {
     console.log("saved");
-    Backbone.history.navigate("edit",{"trigger":true});
+    Backbone.history.navigate("miner/"+this.mode.get("id"),{"trigger":true});
   },
 });
