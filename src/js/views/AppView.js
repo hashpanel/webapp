@@ -14,8 +14,6 @@ module.exports = Backbone.View.extend({
     Servers.fetch({
       success: function (){
         Servers.each(function (data) {
-          console.log("Data from the model", data);
-          //$("#miners").append(data.render().el);
           var miner = new Miner(data.attributes);
           var view = new MinerView({model: miner});
           console.log(view.render().el);
