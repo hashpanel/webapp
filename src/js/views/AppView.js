@@ -16,7 +16,6 @@ module.exports = Backbone.View.extend({
         Servers.each(function (data) {
           var miner = new Miner(data.attributes);
           var view = new MinerView({model: miner});
-          console.log(view.render().el);
           $("#miners").append(view.render().el);
         });
       }

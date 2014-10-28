@@ -37,7 +37,6 @@ var AppRouter = new (Backbone.Router.extend({
     new EditMiner({model:item});
   },
   new: function() {
-    console.log("clicked");
     var blankMiner = new Miner({"name":"", "host":""});
     new EditMiner({model:blankMiner});
     $("#server-details").hide();
