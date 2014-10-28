@@ -3,21 +3,23 @@
     <div role="form" action="/">
         <div class="form-group">
             <label>Name</label>
-            <input class="form-control" value="{{name}}" placeholder="Server Name">
+            <input class="form-control" value="{{name}}" placeholder="Server Name" id="miner-name">
         </div>
         <div class="form-group">
             <label>Pool</label>
-            <input class="form-control" value="{{host}}" placeholder="3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLF">
+            <input class="form-control" value="{{host}}" placeholder="3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLF" id="miner-host">
         </div>
         <div class="form-group">
             <label>Server Address</label>
-            <input class="form-control" placeholder="54.165.235.198">
+            <input class="form-control" placeholder="54.165.235.198" id="miner-address">
         </div>
         <div class="form-group">
             <label>Port:</label>
-            <input class="form-control" value="{{model}}" placeholder="4321">
+            <input class="form-control" value="{{model}}" placeholder="4321" id="miner-port">
         </div>
-        <a href="."><button type="Save" class="btn btn-success" id="save" >Save</button></a>
+        <!-- <a href="."> -->
+          <button type="Save" class="btn btn-success" id="save" >Save</button>
+          <!-- </a> -->
         <button type="Reset" class="btn btn-danger">Cancel</button>
       </div>
     </div>
