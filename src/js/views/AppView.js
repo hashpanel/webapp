@@ -21,11 +21,5 @@ module.exports = Backbone.View.extend({
       }
     });
     this.Servers = Servers;
-  },
-  events: {
-  "click #save": "refresh"
-  },
-  refresh: function () {
-    console.log('refresh');
-  },
+  }
 });
