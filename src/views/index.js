@@ -1,4 +1,4 @@
 module.exports = {
-  Dashboard: require('./Dashboard'),
-  MinerList: require('./MinerList')
+  Dashboard: require('./Dashboard.jsx'),
+  Miners: require('./Miners.jsx')
 };
