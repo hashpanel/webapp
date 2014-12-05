@@ -6,12 +6,15 @@ var Route = React.Router.Route;
 var DefaultRoute = React.Router.DefaultRoute;
 
 var routes = (
-  <Route name='app' path='/' handler={App}>
+  <Route name='app' path={window.location.pathname} handler={App}>
     
   </Route>
 );
 //<DefaultRoute handler={hashpanel.views.Dashboard} />
+//
 
-React.Router.run(routes, function (Handler) {
-  React.render(<Handler />, document.body);
-});
+exports.start = function () {
+  React.Router.run(routes, React.Router.HistoryLocation, function (Handler) {
+    React.render(<Handler />, document.body);
+  });
+};
