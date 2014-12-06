@@ -14,8 +14,8 @@ var WidgetGrid = React.createClass({
         </bs.Col>
         <bs.Col collapseLeft sm={4}>
           <bs.Well className='bg-blue fg-white'>
-            <h2>100% / 94%</h2>
-            <h6>Availability / Performance</h6>
+            <h2>100%</h2>
+            <h6>Miner Availability</h6>
           </bs.Well>
         </bs.Col>
         <bs.Col collapseLeft collapseRight sm={4}>

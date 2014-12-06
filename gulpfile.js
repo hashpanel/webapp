@@ -7,45 +7,50 @@ var reactify = require('reactify');
 var concat = require('gulp-concat');
 var less = require('gulp-less');
 var watch = require('gulp-watch');
-var plumber = require('gulp-plumber');
-var bower = require('gulp-bower');
 var uglify = require('gulp-uglify');
+var bower = require('main-bower-files');
+var buffer = require('vinyl-buffer');
  
 gulp.task('browserify', function() {
-  var browserified = transform(function (filename) {
-    var b = browserify(filename);
-    b.transform(reactify);
-    return b.bundle();
+  var bundler = browserify({
+    entries: bower({ base: './bower_components', filter: /\.js*$/ }).concat([
+      './src/index.js'
+    ]),
+    transform: [ reactify ],
+    debug: true,
+    cache: { },
+    packageCache: { },
+    fullPaths: true
   });
 
-  return gulp.src([
-      './src/index.js',
-      './bower_components/d3/d3.js',
-      './bower_components/nvd3/nv.d3.js'
-    ])
-    .pipe(browserified)
-    .pipe(concat('hashpanel.js'))
+  var watcher = watchify(bundler);
+    
+  return watcher.on('update', function () {
+    var t0 = Date.now();
+      watcher.bundle()
+        .pipe(source('hashpanel.js'))
+        .pipe(buffer())
+        .pipe(uglify())
+        .pipe(gulp.dest('./www/'));
+
+      console.log('js updated;', (Date.now() - t0) + 'ms');
+    })
+    .bundle()
+    .pipe(source('hashpanel.js'))
+    .pipe(buffer())
     .pipe(uglify())
     .pipe(gulp.dest('./www/'));
 });
 
 gulp.task('less', function () {
   return gulp.src('./src/styles/index.less')
-    .pipe(plumber())
     .pipe(less())
     .pipe(concat('hashpanel.css'))
     .pipe(gulp.dest('./www/'));
 });
 
 gulp.task('watch', function () {
-  gulp.watch([
-      '*.less',
-      '*.js',
-      '*.jsx'
-    ],
-    { base: './src' },
-    [ 'less', 'browserify' ]
-    );
+  gulp.watch([ 'src/styles/*.less' ], [ 'less' ]);
 });
 
-gulp.task('default', ['browserify', 'less']);
+gulp.task('default', ['browserify', 'less', 'watch']);

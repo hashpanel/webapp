@@ -19,7 +19,7 @@ var App = React.createClass({
             </bs.Col>
           </bs.Row>
           <bs.Row>
-            <bs.Col sm={3}>
+            <bs.Col sm={3} className='hidden-xs'>
               <Sidebar />
             </bs.Col>
             <bs.Col sm={9}>

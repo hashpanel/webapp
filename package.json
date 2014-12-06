@@ -26,12 +26,14 @@
     "react-bootstrap": "^0.13.0",
     "reactify": "^0.17.1",
     "uglify": "^0.1.0",
+    "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.0.0",
     "vinyl-transform": "^1.0.0",
     "zepto": "git://github.com/madrobby/zepto"
   },
   "devDependencies": {
     "gulp-watch": "^3.0.0",
-    "gulp-watch-less": "^0.2.1"
+    "gulp-watch-less": "^0.2.1",
+    "main-bower-files": "^2.4.1"
   }
 }
