@@ -1,0 +1,23 @@
+{
+  "name": "hashpanel",
+  "version": "0.0.0",
+  "authors": [
+    "Travis Webb <me@traviswebb.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.4.13",
+    "nvd3": "~1.1.15-beta"
+  },
+  "resolutions": {
+    "d3": "~3.3.13"
+  }
+}
