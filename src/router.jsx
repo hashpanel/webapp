@@ -8,10 +8,9 @@ var DefaultRoute = React.Router.DefaultRoute;
 var routes = (
   <Route name='app' path={window.location.pathname} handler={App}>
     
+    <DefaultRoute name='dashboard' handler={hashpanel.views.Dashboard} />
   </Route>
 );
-//<DefaultRoute handler={hashpanel.views.Dashboard} />
-//
 
 exports.start = function () {
   React.Router.run(routes, React.Router.HistoryLocation, function (Handler) {

@@ -9,6 +9,7 @@ global.React = require('react');
 global.React.Bootstrap = require('react-bootstrap');
 
 global.hashpanel = {
+  url: window.location.url,
   api: null,
   session: { },
   components: require('./components'),

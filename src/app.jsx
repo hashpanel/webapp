@@ -11,15 +11,18 @@ var App = React.createClass({
       <div id='app'>
         <bs.Grid>
           <bs.Row>
-            <bs.Col>
+            <bs.Col sm={3} className='hidden-xs'>
+              logged in as tjwebb
+            </bs.Col>
+            <bs.Col sm={9}>
               <Header />
             </bs.Col>
           </bs.Row>
           <bs.Row>
-            <bs.Col md={3} sm={4} className='hidden-xs'>
+            <bs.Col sm={3}>
               <Sidebar />
             </bs.Col>
-            <bs.Col md={9}>
+            <bs.Col sm={9}>
               <RouteHandler />
             </bs.Col>
           </bs.Row>
