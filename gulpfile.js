@@ -11,11 +11,29 @@ var uglify = require('gulp-uglify');
 var bower = require('main-bower-files');
 var buffer = require('vinyl-buffer');
  
-gulp.task('browserify', function() {
+gulp.task('browserify-lib', function() {
+  return browserify({
+      entries: bower({ base: './bower_components', filter: /\.js*$/ }).concat([
+        './lib/index.js'
+      ]),
+      transform: [ reactify ],
+      debug: true,
+      cache: { },
+      packageCache: { },
+      fullPaths: true
+    })
+    .bundle()
+    .pipe(source('lib.js'))
+    .pipe(buffer())
+    .pipe(uglify())
+    .pipe(gulp.dest('./www/'));
+});
+
+gulp.task('browserify-app', function () {
   var bundler = browserify({
-    entries: bower({ base: './bower_components', filter: /\.js*$/ }).concat([
+    entries: [
       './src/index.js'
-    ]),
+    ],
     transform: [ reactify ],
     debug: true,
     cache: { },
@@ -53,4 +71,4 @@ gulp.task('watch', function () {
   gulp.watch([ 'src/styles/*.less' ], [ 'less' ]);
 });
 
-gulp.task('default', ['browserify', 'less', 'watch']);
+gulp.task('default', ['browserify-lib', 'browserify-app', 'less', 'watch']);

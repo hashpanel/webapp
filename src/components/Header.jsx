@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 
 var bs = React.Bootstrap;
+var Link = React.Router.Link;
 
 var Header = React.createClass({
   render: function () {
@@ -10,8 +11,10 @@ var Header = React.createClass({
           <bs.NavItem>
             <img src='images/hashpanel-logo-light.png' height={32}/> 
           </bs.NavItem>
-          <bs.NavItem className='fa-bars fa-fw visible-xs'>
-          </bs.NavItem>
+          <Link to='nav'>
+            <bs.NavItem className='fa-bars fa-fw visible-xs'>
+            </bs.NavItem>
+          </Link>
         </bs.Nav>
       </bs.Navbar>
     );

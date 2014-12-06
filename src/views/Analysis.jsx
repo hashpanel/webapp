@@ -2,13 +2,14 @@
 
 var bs = React.Bootstrap;
 
-var Miners = React.createClass({
+var Analysis = React.createClass({
   render: function () {
     return (
-      <bs.Panel header='Miners'>
+      <bs.Panel header='Analysis'>
       </bs.Panel>
     );
   }
 });
 
-module.exports = Miners;
+module.exports = Analysis;
+
