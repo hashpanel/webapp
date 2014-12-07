@@ -2,26 +2,36 @@
 
 var bs = React.Bootstrap;
 
-var WidgetGrid = React.createClass({
+var WidgetGrid = React.createBackboneClass({
+  handleRevenueResponse: function (revenue) {
+    $(this.refs.revenueValue.getDOMNode()).text(revenue.toFixed(2));
+  },
   render: function () {
+    this.getCollection().getRevenue(moment.duration(1, 'day'))
+      .then(this.handleRevenueResponse);
+    var hashrate = this.getCollection().getCurrentHashrateString();
+    var availability = this.getCollection().getAvailabilityString();
     return (
-      <bs.Row>
+      <bs.Row className='widgetgrid'>
         <bs.Col sm={4}>
-          <bs.Well className='bg-purple fg-white'>
-            <h2>9.7 TH/s</h2>
-            <h5>Current Hashrate</h5>
+          <bs.Well>
+            <h4>{hashrate}</h4>
+            <h6>Current Hashrate</h6>
           </bs.Well>
         </bs.Col>
-        <bs.Col collapseLeft sm={4}>
-          <bs.Well className='bg-blue fg-white'>
-            <h2>100%</h2>
+        <bs.Col sm={4}>
+          <bs.Well>
+            <h4>{availability}</h4>
             <h6>Miner Availability</h6>
           </bs.Well>
         </bs.Col>
-        <bs.Col collapseLeft collapseRight sm={4}>
-          <bs.Well className='bg-bitcoinorange fg-white'>
-            <h2><i className='fa fa-btc' style={{marginRight: 4}} />0.19</h2>
-            <h5>Daily BTC Revenue</h5>
+        <bs.Col sm={4}>
+          <bs.Well>
+            <h4>
+              <span className='fa fa-btc fa-fw' />
+              <span ref='revenueValue' />
+            </h4>
+              <h6>Daily Revenue</h6>
           </bs.Well>
         </bs.Col>
       </bs.Row>

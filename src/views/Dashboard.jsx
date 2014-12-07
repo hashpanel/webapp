@@ -6,8 +6,8 @@ var Dashboard = React.createClass({
   render: function () {
     return (
       <bs.Panel header='Dashboard'>
-        <hashpanel.components.WidgetGrid />
-        <hashpanel.components.MinerHistoryChart />
+        <hashpanel.components.WidgetGrid collection={hashpanel.session.miners} />
+        <hashpanel.components.MinerHistoryChart collection={hashpanel.session.miners} />
       </bs.Panel>
     );
   }

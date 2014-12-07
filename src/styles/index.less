@@ -1,3 +1,11 @@
 @import "../../node_modules/bootstrap/less/bootstrap.less";
 @import "../../node_modules/font-awesome/less/font-awesome.less";
 @import (less) "../../bower_components/nvd3/nv.d3.css";
+
+@import "./dashboard.less";
+
+[class*="col-sm-"] {
+  &:not(:first-child) {
+    padding-left: 0;
+  }
+}

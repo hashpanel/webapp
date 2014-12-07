@@ -30,10 +30,7 @@ HashwareClient.create('http://localhost:1337/api/v1/backbonemodel')
       });
   })
   .then(function (users) {
-    hashpanel.session.user = users.at(0);
-    console.log(users);
-    return hashpanel.session.miners.fetch({ data: { populate: 'state' }});
-  })
-  .then(function (miners) {
-
+    console.log(arguments);
+    //hashpanel.session.user = users.at(0);
+    //return hashpanel.session.miners.fetch({ data: { populate: 'state' }});
   });
