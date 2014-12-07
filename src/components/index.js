@@ -5,5 +5,6 @@ module.exports = {
   MinerTable: require('./MinerTable.jsx'),
   PerformanceWidget: require('./PerformanceWidget.jsx'),
   RevenueWidget: require('./RevenueWidget.jsx'),
-  Sidebar: require('./Sidebar.jsx')
+  Sidebar: require('./Sidebar.jsx'),
+  WidgetGrid: require('./WidgetGrid.jsx')
 };

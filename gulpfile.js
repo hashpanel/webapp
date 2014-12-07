@@ -48,7 +48,7 @@ gulp.task('browserify-app', function () {
       watcher.bundle()
         .pipe(source('hashpanel.js'))
         .pipe(buffer())
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest('./www/'));
 
       console.log('js updated;', (Date.now() - t0) + 'ms');
@@ -56,7 +56,7 @@ gulp.task('browserify-app', function () {
     .bundle()
     .pipe(source('hashpanel.js'))
     .pipe(buffer())
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(gulp.dest('./www/'));
 });
 
