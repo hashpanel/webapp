@@ -6,6 +6,7 @@ var Miners = React.createClass({
   render: function () {
     return (
       <bs.Panel header='Miners'>
+        <hashpanel.components.MinerTable collection={hashpanel.session.miners} />
       </bs.Panel>
     );
   }

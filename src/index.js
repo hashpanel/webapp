@@ -20,8 +20,6 @@ HashwareClient.create('http://localhost:1337/api/v1/backbonemodel')
     hashpanel.session.users = new api.UserCollection();
     hashpanel.session.miners = new api.MinerCollection();
 
-    hashpanel.router.start();
-
     return hashpanel.session.users
       .fetch({
         headers: {
@@ -29,8 +27,13 @@ HashwareClient.create('http://localhost:1337/api/v1/backbonemodel')
         }
       });
   })
-  .then(function (users) {
-    console.log(arguments);
-    //hashpanel.session.user = users.at(0);
-    //return hashpanel.session.miners.fetch({ data: { populate: 'state' }});
+  .then(function () {
+    hashpanel.session.user = hashpanel.session.users.at(0);
+    hashpanel.router.start();
+
+    return hashpanel.session.miners.fetch({
+      data: {
+        populate: [ 'state', 'device' ]
+      }
+    });
   });

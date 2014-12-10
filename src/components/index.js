@@ -6,5 +6,6 @@ module.exports = {
   PerformanceWidget: require('./PerformanceWidget.jsx'),
   RevenueWidget: require('./RevenueWidget.jsx'),
   Sidebar: require('./Sidebar.jsx'),
+  UserWidget: require('./UserWidget.jsx'),
   WidgetGrid: require('./WidgetGrid.jsx')
 };

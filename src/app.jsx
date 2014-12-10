@@ -2,8 +2,6 @@
 
 var bs = React.Bootstrap;
 var RouteHandler = React.Router.RouteHandler;
-var Header = hashpanel.components.Header;
-var Sidebar = hashpanel.components.Sidebar;
 
 var App = React.createClass({
   render: function () {
@@ -12,15 +10,15 @@ var App = React.createClass({
         <bs.Grid>
           <bs.Row>
             <bs.Col sm={3} className='hidden-xs'>
-              logged in as tjwebb
+              <hashpanel.components.UserWidget model={hashpanel.session.user} />
             </bs.Col>
             <bs.Col sm={9}>
-              <Header />
+              <hashpanel.components.Header />
             </bs.Col>
           </bs.Row>
           <bs.Row>
             <bs.Col sm={3} className='hidden-xs'>
-              <Sidebar />
+              <hashpanel.components.Sidebar />
             </bs.Col>
             <bs.Col sm={9}>
               <RouteHandler />

@@ -6,9 +6,11 @@ var WidgetGrid = React.createBackboneClass({
   handleRevenueResponse: function (revenue) {
     $(this.refs.revenueValue.getDOMNode()).text(revenue.toFixed(2));
   },
-  render: function () {
+  componentDidMount: function () {
     this.getCollection().getRevenue(moment.duration(1, 'day'))
       .then(this.handleRevenueResponse);
+  },
+  render: function () {
     var hashrate = this.getCollection().getCurrentHashrateString();
     var availability = this.getCollection().getAvailabilityString();
     return (
