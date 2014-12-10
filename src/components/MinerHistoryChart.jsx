@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 
 var bs = React.Bootstrap;
+hashpanel.session.charts.minerHistory = { };
 
 var MinerHistoryChart = React.createBackboneClass({
   getInitialState: function () {
@@ -10,8 +11,7 @@ var MinerHistoryChart = React.createBackboneClass({
           end: Date.now(),
           begin: Date.now() - (86400 * 1000),  // one day ago
           resolution: 15 // minutes
-        },
-        data: { }
+        }
       }
     };
   },
@@ -38,32 +38,30 @@ var MinerHistoryChart = React.createBackboneClass({
     this.props.svg = d3.select('#dashboard-miner-chart svg');
 
     nv.utils.windowResize(this.props.chart.update);
+    this.forceUpdate();
 
     return this.props.chart;
   },
   componentDidUpdate: function () {
     console.log('componentDidUpdate');
-    var data = _.map(this.state.chart.data, function (data, name) {
+    var data = _.map(hashpanel.session.charts.minerHistory, function (data, name) {
       return {
         key: name,
         values: data
       };
     });
-    console.log(data);
     this.props.svg.datum(data).call(this.props.chart);
   },
   onModelChange: function () {
     var params = this.state.chart.parameters;
-    var chart = this.state.chart;
     this.getCollection().each(function (miner) {
       miner.getChartData(params).then(function (data) {
-        chart.data[miner.get('name')] = data;
-        this.setState({ chart: chart });
+        hashpanel.session.charts.minerHistory[miner.get('name')] = data;
+        this.forceUpdate();
       }.bind(this));
     }, this);
   },
   componentDidMount: function () {
-    console.log('componentDidMount');
     nv.addGraph(this.createChart);
   },
   render: function () {

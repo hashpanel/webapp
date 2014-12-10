@@ -4,32 +4,28 @@ var bs = React.Bootstrap;
 var Link = React.Router.Link;
 
 var Sidebar = React.createClass({
+  /**
+   * Using Link as ListGroupItem, since react-router automatically
+   * applies the 'active' class to the current Route
+   */
   render: function () {
     return (
-      <bs.ListGroup>
-        <Link to='dashboard'>
-          <bs.ListGroupItem active>
-            <span className='fa-dashboard fa-fw' />
-            Dashboard
-          </bs.ListGroupItem>
+      <bs.ListGroup hover>
+        <Link to='dashboard' active className='list-group-item'>
+          <span className='fa-dashboard fa-fw' />
+          Dashboard
         </Link>
-        <Link to='miners'>
-          <bs.ListGroupItem>
-            <span className='fa-hdd-o fa-fw' />
-            Miners
-          </bs.ListGroupItem>
+        <Link to='miners' className='list-group-item'>
+          <span className='fa-hdd-o fa-fw' />
+          Miners
         </Link>
-        <Link to='analysis'>
-          <bs.ListGroupItem>
-            <span className='fa-line-chart fa-fw' />
-            Analysis
-          </bs.ListGroupItem>
+        <Link to='analysis' className='list-group-item'>
+          <span className='fa-line-chart fa-fw' />
+          Analysis
         </Link>
-        <Link to='news'>
-          <bs.ListGroupItem>
-            <span className='fa-newspaper-o fa-fw' />
-            News
-          </bs.ListGroupItem>
+        <Link to='news' className='list-group-item'>
+          <span className='fa-newspaper-o fa-fw' />
+          News
         </Link>
       </bs.ListGroup>
     );

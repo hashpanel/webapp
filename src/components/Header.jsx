@@ -9,7 +9,7 @@ var Header = React.createClass({
       <bs.Navbar className='header'>
         <bs.Nav>
           <bs.NavItem>
-            <img src='images/hashpanel-logo-light.png' height={32}/> 
+            <img id='logo-image' src='images/hashpanel-logo-light.png' /> 
           </bs.NavItem>
           <Link to='nav'>
             <bs.NavItem className='fa-bars fa-fw visible-xs'>

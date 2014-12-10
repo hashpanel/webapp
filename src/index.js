@@ -6,10 +6,12 @@ console.log('app: hashpanel');
 global.hashpanel = {
   url: window.location.url,
   api: { },
-  session: { },
-  components: require('./components'),
-  views: require('./views')
+  session: {
+    charts: { }
+  },
 };
+hashpanel.components = require('./components');
+hashpanel.views = require('./views');
 
 hashpanel.router = require('./router.jsx');
 

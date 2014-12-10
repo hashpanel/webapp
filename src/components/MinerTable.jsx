@@ -25,7 +25,7 @@ var MinerTable = React.createBackboneClass({
       );  
     });
     return (
-      <bs.Table>
+      <bs.Table striped hover>
         <thead>
           <tr>
             <th>Name</th>
