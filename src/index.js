@@ -7,7 +7,8 @@ global.hashpanel = {
   url: window.location.url,
   api: { },
   session: {
-    charts: { }
+    charts: { },
+    widgets: { }
   },
 };
 hashpanel.components = require('./components');

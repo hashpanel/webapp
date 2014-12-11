@@ -1,12 +1,22 @@
 /** @jsx React.DOM */
 
 var bs = React.Bootstrap;
+hashpanel.session.widgets.hashrate = 0;
+hashpanel.session.widgets.availability = 0;
+hashpanel.session.widgets.revenue = 0;
 
 var WidgetGrid = React.createBackboneClass({
   handleRevenueResponse: function (revenue) {
-    $(this.refs.revenueValue.getDOMNode()).text(revenue.toFixed(2));
+    hashpanel.session.widgets.revenue = revenue;
+    this.forceUpdate();
+  },
+  componentDidUpdate: function () {
+    $(this.refs.revenueValue.getDOMNode()).text(hashpanel.session.widgets.revenue.toFixed(8));
   },
   componentDidMount: function () {
+    if (hashpanel.session.widgets.revenue) {
+      this.forceUpdate();
+    }
     this.getCollection().getRevenue(moment.duration(1, 'day'))
       .then(this.handleRevenueResponse);
   },
