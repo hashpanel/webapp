@@ -69,7 +69,7 @@ var MinerRow = React.createBackboneClass({
         <td>{this.getModel().get('name')}</td>
         <bs.OverlayTrigger placement='bottom' trigger='click' overlay={this.renderHashratePopover()}>
           <td>
-            <bs.Button className={this.hashrateColumnStyle()}>
+            <bs.Button bsSize='small' className={this.hashrateColumnStyle()}>
               {this.getModel().getCurrentHashrateString()}
             </bs.Button>
           </td>
