@@ -12,8 +12,7 @@ var Header = React.createClass({
             <img id='logo-image' src='images/hashpanel-logo-light.png' /> 
           </bs.NavItem>
           <Link to='nav'>
-            <bs.NavItem className='fa-bars fa-fw visible-xs'>
-            </bs.NavItem>
+            <bs.NavItem className='fa-bars fa-fw visible-xs' />
           </Link>
         </bs.Nav>
       </bs.Navbar>

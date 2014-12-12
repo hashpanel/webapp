@@ -3,6 +3,13 @@
 var bs = React.Bootstrap;
 
 var UserWidget = React.createBackboneClass({
+  logout: function () {
+    this.getModel().logout(hashpanel.api.url).then(function (r) {
+      console.log(r);
+      console.log('logged out');
+    });
+    
+  },
   render: function () {
     var user = this.getModel();
     var imgUrl = (user && user.get('gravatarUrl')) || 'https://gravatar.com/avatar';
@@ -15,7 +22,7 @@ var UserWidget = React.createBackboneClass({
             <span className='fa fa-user fa-fw' />
             Profile
           </bs.MenuItem>
-          <bs.MenuItem>
+          <bs.MenuItem onClick={this.logout}>
             <span className='fa fa-power-off fa-fw' />
             Logout
           </bs.MenuItem>

@@ -8,7 +8,7 @@ var path = window.location.pathname;
 console.log('path:', path);
 
 var routes = (
-  <Route name='app' path={path} handler={App}>
+  <Route name='app' path='/' handler={App}>
     <Route name='miners' handler={hashpanel.views.Miners} />
     <Route name='analysis' handler={hashpanel.views.Analysis} />
     <Route name='news' handler={hashpanel.views.News} />
@@ -17,8 +17,14 @@ var routes = (
   </Route>
 );
 
+var router = React.Router.create({
+  routes: routes,
+  scrollBehavior: React.Router.ScrollToTopBehavior,
+  location: React.Router.HashLocation
+});
+
 exports.start = function () {
-  React.Router.run(routes, React.Router.HistoryLocation, function (Handler) {
+  router.run(function (Handler) {
     React.render(<Handler />, document.body);
   });
 };
