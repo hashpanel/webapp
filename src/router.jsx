@@ -9,11 +9,12 @@ console.log('path:', path);
 
 var routes = (
   <Route name='app' path='/' handler={App}>
-    <Route name='miners' handler={hashpanel.views.Miners} />
+    <DefaultRoute name='dashboard' handler={hashpanel.views.Dashboard} />
+    <Route name='minerlist' handler={hashpanel.views.MinerList} />
+    <Route name='miner' handler={hashpanel.views.Miner} />
     <Route name='analysis' handler={hashpanel.views.Analysis} />
     <Route name='news' handler={hashpanel.views.News} />
     <Route name='nav' handler={hashpanel.components.Sidebar} />
-    <DefaultRoute name='dashboard' handler={hashpanel.views.Dashboard} />
   </Route>
 );
 

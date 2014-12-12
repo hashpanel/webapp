@@ -15,7 +15,7 @@ var Sidebar = React.createClass({
           <span className='fa-dashboard fa-fw' />
           Dashboard
         </Link>
-        <Link to='miners' className='list-group-item'>
+        <Link to='minerlist' className='list-group-item'>
           <span className='fa-hdd-o fa-fw' />
           Miners
         </Link>

@@ -1,15 +1,19 @@
 /** @jsx React.DOM */
 
 var bs = React.Bootstrap;
+var Link = React.Router.Link;
 
-var Miners = React.createClass({
+var MinerList = React.createClass({
   renderHeader: function () {
     return (
       <div>
         Miners
-        <bs.Button id='create-miner-btn' bsStyle='primary' bsSize='small'>
-          <span className='fa fa-fw fa-plus' />Add Miner
-        </bs.Button>
+        <Link to='miner'>
+          <bs.Button id='create-miner-btn' bsStyle='primary' bsSize='small'>
+            <span className='fa fa-fw fa-plus' />
+            Add Miner
+          </bs.Button>
+        </Link>
       </div>
     );
   },
@@ -22,4 +26,4 @@ var Miners = React.createClass({
   }
 });
 
-module.exports = Miners;
+module.exports = MinerList;

@@ -8,12 +8,12 @@ var UserWidget = React.createBackboneClass({
       console.log(r);
       console.log('logged out');
     });
-    
   },
   render: function () {
     var user = this.getModel();
     var imgUrl = (user && user.get('gravatarUrl')) || 'https://gravatar.com/avatar';
     var username = (user && user.get('username')) || '';
+
     return (
       <bs.Well className='header'>
         <img src={imgUrl} id='avatar' />

@@ -5,17 +5,12 @@
 @import "./dashboard.less";
 @import "./UserWidget.less";
 @import "./Header.less";
-@import "./Miners.less";
+@import "./Sidebar.less";
+@import "./MinerList.less";
 
 [class*="col-sm-"] {
   &:not(:first-child) {
     padding-left: 0;
-  }
-}
-
-.list-group-item {
-  > .fa-fw {
-    margin-right: 6px;
   }
 }
 
@@ -37,4 +32,16 @@
 
 .label {
   cursor: pointer;
+}
+
+.panel-heading {
+  * .back-btn {
+    float: right;
+  }
+}
+
+.modal-backdrop {
+  position: fixed;
+  bottom: 0;
+  z-index: 1040;
 }
