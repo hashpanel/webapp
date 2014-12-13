@@ -19,10 +19,6 @@ var Sidebar = React.createClass({
           <span className='fa-hdd-o fa-fw' />
           Miners
         </Link>
-        <Link to='analysis' className='list-group-item'>
-          <span className='fa-line-chart fa-fw' />
-          Analysis
-        </Link>
         <Link to='news' className='list-group-item'>
           <span className='fa-newspaper-o fa-fw' />
           News
@@ -31,5 +27,11 @@ var Sidebar = React.createClass({
     );
   }
 });
+/*
+        <Link to='analysis' className='list-group-item'>
+          <span className='fa-line-chart fa-fw' />
+          Analysis
+        </Link>
+*/
 
 module.exports = Sidebar;
