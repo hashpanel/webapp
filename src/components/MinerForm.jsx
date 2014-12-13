@@ -7,7 +7,6 @@ var MinerForm = React.createBackboneClass({
   getInitialState: function () {
     return {
       hostHelp: 'Information needed to manage your miner remotely'
-//hashrateHelp: 'Optionally override the manufacturer\'s hashrate'
     };
   },
   render: function () {

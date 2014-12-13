@@ -5,26 +5,13 @@ var Link = React.Router.Link;
 
 var Miner = React.createBackboneClass({
   handleSave: function (event) {
-
-  },
-  renderDeleteModal: function () {
-    return (
-      <bs.Modal title='Delete Miner' className='modal fade'>
-        <div className='modal-body'>
-          Are you sure you want to delete this miner?
-        </div>
-        <div className='modal-footer'>
-          <bs.Button bsSize='small' bsStyle='danger'><span className='fa fa-remove' />Delete</bs.Button>
-          <bs.Button bsSize='small'>Cancel</bs.Button>
-        </div>
-      </bs.Modal>
-    );
+    console.log(event);
   },
   renderFooter: function () {
     return (
       <bs.ButtonToolbar>
         <bs.Button bsStyle='primary' bsSize='small'onClick={this.handleSave}><span className='fa fa-check' />Save</bs.Button>
-        <bs.ModalTrigger modal={this.renderDeleteModal()}>
+        <bs.ModalTrigger modal={<hashpanel.components.MinerDeleteConfirmationModal />}>
           <bs.Button bsStyle='danger' bsSize='small'><span className='fa fa-remove' />Delete</bs.Button>
         </bs.ModalTrigger>
       </bs.ButtonToolbar>
