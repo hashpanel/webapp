@@ -1,14 +1,16 @@
-@import "../../node_modules/bootstrap/less/bootstrap.less";
-@import "../../node_modules/font-awesome/less/font-awesome.less";
-@import (less) "../../bower_components/nvd3/nv.d3.css";
+@import '../../node_modules/bootstrap/less/bootstrap.less';
+@import '../../node_modules/font-awesome/less/font-awesome.less';
+@import (less) '../../bower_components/nvd3/nv.d3.css';
 
-@import "./dashboard.less";
-@import "./UserWidget.less";
-@import "./Header.less";
-@import "./Sidebar.less";
-@import "./MinerList.less";
+@import './dashboard.less';
+@import './UserWidget.less';
+@import './Header.less';
+@import './Sidebar.less';
+@import './MinerList.less';
 
-[class*="col-sm-"] {
+@fa-font-path: '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/fonts/';
+
+[class*='col-sm-'] {
   &:not(:first-child) {
     padding-left: 0;
   }

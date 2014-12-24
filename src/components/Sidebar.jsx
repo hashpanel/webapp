@@ -12,15 +12,15 @@ var Sidebar = React.createClass({
     return (
       <bs.ListGroup hover>
         <Link to='dashboard' active className='list-group-item'>
-          <span className='fa-dashboard fa-fw' />
+          <span className='fa fa-dashboard fa-fw' />
           Dashboard
         </Link>
         <Link to='minerlist' className='list-group-item'>
-          <span className='fa-hdd-o fa-fw' />
+          <span className='fa fa-hdd-o fa-fw' />
           Miners
         </Link>
         <Link to='news' className='list-group-item'>
-          <span className='fa-newspaper-o fa-fw' />
+          <span className='fa fa-newspaper-o fa-fw' />
           News
         </Link>
       </bs.ListGroup>
