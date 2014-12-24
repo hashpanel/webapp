@@ -43,14 +43,15 @@ var MinerHistoryChart = React.createBackboneClass({
     return this.props.chart;
   },
   componentDidUpdate: function () {
-    console.log('componentDidUpdate');
     var data = _.map(hashpanel.session.charts.minerHistory, function (data, name) {
       return {
         key: name,
         values: data
       };
     });
-    this.props.svg.datum(data).call(this.props.chart);
+    if (this.props.svg) {
+      this.props.svg.datum(data).call(this.props.chart);
+    }
   },
   onModelChange: function () {
     var params = this.state.chart.parameters;
@@ -63,6 +64,7 @@ var MinerHistoryChart = React.createBackboneClass({
   },
   componentDidMount: function () {
     nv.addGraph(this.createChart);
+    this.forceUpdate();
   },
   render: function () {
     return (
