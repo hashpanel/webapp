@@ -10,7 +10,7 @@ var MinerHistoryChart = React.createBackboneClass({
         parameters: {
           end: Date.now(),
           begin: Date.now() - (86400 * 1000),  // one day ago
-          resolution: 15 // minutes
+          resolution: 10 // minutes
         }
       }
     };
@@ -21,9 +21,10 @@ var MinerHistoryChart = React.createBackboneClass({
       .transitionDuration(250)
       .showControls(false)
       .clipEdge(true)
+      .forceY(0)
       .x(function (d) {
         return new Date(d.x);
-      });
+      })
 
 
     this.props.chart.xAxis
