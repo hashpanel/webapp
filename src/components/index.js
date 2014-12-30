@@ -8,6 +8,7 @@ module.exports = {
   PerformanceWidget: require('./PerformanceWidget.jsx'),
   RevenueWidget: require('./RevenueWidget.jsx'),
   Sidebar: require('./Sidebar.jsx'),
+  UserForm: require('./UserForm.jsx'),
   UserWidget: require('./UserWidget.jsx'),
   WidgetGrid: require('./WidgetGrid.jsx')
 };

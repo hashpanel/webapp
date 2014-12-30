@@ -15,6 +15,7 @@ var routes = (
     <Route name='analysis' handler={hashpanel.views.Analysis} />
     <Route name='news' handler={hashpanel.views.News} />
     <Route name='nav' handler={hashpanel.components.Sidebar} />
+    <Route name='profile' handler={hashpanel.views.Profile} />
   </Route>
 );
 

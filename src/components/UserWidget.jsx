@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 
 var bs = React.Bootstrap;
+var Link = React.Router.Link;
 
 var UserWidget = React.createBackboneClass({
   logout: function () {
@@ -18,10 +19,12 @@ var UserWidget = React.createBackboneClass({
       <bs.Well className='header'>
         <img src={imgUrl} id='avatar' />
         <bs.DropdownButton title={username}>
-          <bs.MenuItem>
-            <span className='fa fa-user fa-fw' />
-            Profile
-          </bs.MenuItem>
+          <Link to='profile' active className='list-group-item'>
+            <bs.MenuItem>
+              <span className='fa fa-user fa-fw' />
+              Profile
+            </bs.MenuItem>
+          </Link>
           <bs.MenuItem onClick={this.logout}>
             <span className='fa fa-power-off fa-fw' />
             Logout

@@ -1,7 +1,8 @@
 module.exports = {
+  Analysis: require('./Analysis.jsx'),
   Dashboard: require('./Dashboard.jsx'),
   Miner: require('./Miner.jsx'),
   MinerList: require('./MinerList.jsx'),
-  Analysis: require('./Analysis.jsx'),
-  News: require('./News.jsx')
+  News: require('./News.jsx'),
+  Profile: require('./Profile.jsx')
 };
