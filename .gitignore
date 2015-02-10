@@ -4,3 +4,4 @@ node_modules/
 *.log
 www/*.js
 www/*.css
+www/fonts
