@@ -77,14 +77,14 @@ gulp.task('browserify-app-watch', function () {
 });
 
 gulp.task('less', function () {
-  return gulp.src('./css/index.less')
+  return gulp.src('./less/index.less')
     .pipe(less())
     .pipe(concat('hashpanel.css'))
     .pipe(gulp.dest('./www/'));
 });
 
 gulp.task('less-watch', function () {
-  gulp.watch([ 'css/*.less' ], [ 'less' ]);
+  gulp.watch([ 'less/*.less' ], [ 'less' ]);
 });
 
 gulp.task('s3-deploy', function () {

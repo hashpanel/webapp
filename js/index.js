@@ -1,8 +1,3 @@
-console.log('app: hashpanel');
-
-/**
- * @namespace hashpanel
- */
 global.hashpanel = {
   url: window.location.url,
   api: { },
