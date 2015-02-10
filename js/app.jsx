@@ -4,9 +4,6 @@ var bs = React.Bootstrap;
 var RouteHandler = React.Router.RouteHandler;
 
 var App = React.createClass({
-  componentDidMount: function () {
-//kendo.init(this.getDOMNode());
-  },
   render: function () {
     return (
       <div id='app'>

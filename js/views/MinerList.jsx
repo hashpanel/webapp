@@ -4,10 +4,6 @@ var bs = React.Bootstrap;
 var Link = React.Router.Link;
 
 var MinerList = React.createClass({
-  componentDidMount: function () {
-    kendo.init('#create-miner-btn');
-//$('#create-miner-btn').kendoButton();
-  },
   renderHeader: function () {
     return (
       <div>
