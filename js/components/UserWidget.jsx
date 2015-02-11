@@ -16,21 +16,19 @@ var UserWidget = React.createBackboneClass({
     var username = (user && user.get('username')) || '';
 
     return (
-      <bs.Well className='header'>
+      <bs.Navbar className='header'>
         <img src={imgUrl} id='avatar' />
-        <bs.DropdownButton title={username}>
-          <Link to='profile' active className='list-group-item'>
-            <bs.MenuItem>
-              <span className='fa fa-user fa-fw' />
-              Profile
-            </bs.MenuItem>
+        <bs.DropdownButton title={username} ref='dropdown'>
+          <Link to='profile' className='list-group-item' eventKey='1'>
+            <span className='fa fa-user fa-fw' />
+            Profile
           </Link>
-          <bs.MenuItem onClick={this.logout}>
+          <Link to='login' params={{ logout: true }} className='list-group-item' eventKey='2'>
             <span className='fa fa-power-off fa-fw' />
             Logout
-          </bs.MenuItem>
+          </Link>
         </bs.DropdownButton>
-      </bs.Well>
+      </bs.Navbar>
     );
   }
 });

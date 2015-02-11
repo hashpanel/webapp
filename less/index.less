@@ -1,6 +1,7 @@
 @import '../node_modules/bootstrap/less/bootstrap.less';
 @import './bootswatch.less';
 @import './theme-variables.less';
+@import './override-variables.less';
 @import '../node_modules/font-awesome/less/font-awesome.less';
 @import (less) '../bower_components/nvd3/nv.d3.css';
 
@@ -10,7 +11,7 @@
 @import './Sidebar.less';
 @import './MinerList.less';
 
-@fa-font-path: '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/fonts/';
+@fa-font-path: 'fonts/';
 
 [class*='col-sm-'] {
   &:not(:first-child) {
@@ -30,9 +31,11 @@
   margin: 0 .5em 0 0;
 }
 
+/*
 .navbar-nav {
   padding: 8px;
 }
+*/
 
 .label {
   cursor: pointer;

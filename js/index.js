@@ -1,3 +1,5 @@
+_.defaults(React.Bootstrap, require('react-router-bootstrap'));
+
 global.hashpanel = {
   url: window.location.url,
   api: { },

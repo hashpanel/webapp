@@ -6,22 +6,22 @@ var Link = React.Router.Link;
 var MinerRow = React.createBackboneClass({
   stateLabelStyle: function () {
     if (this.getModel().get('state').get('success')) {
-      return 'label-success';
+      return 'success';
     }
     else {
-      return 'label-danger';
+      return 'danger';
     }
   },
   hashrateColumnStyle: function () {
     var ratio = this.getModel().getPerformanceRatio();
     if (ratio > 0.80) {
-      return '';
+      return 'success';
     }
     else if (ratio > 0.55) {
-      return 'btn-warning';
+      return 'warning';
     }
     else {
-      return 'btn-danger';
+      return 'danger';
     }
   },
   renderHashratePopover: function () {
@@ -69,7 +69,7 @@ var MinerRow = React.createBackboneClass({
         <td>{this.getModel().get('name')}</td>
         <bs.OverlayTrigger placement='bottom' trigger='click' overlay={this.renderHashratePopover()}>
           <td>
-            <bs.Button bsSize='small' className={this.hashrateColumnStyle()}>
+            <bs.Button bsSize='small' bsStyle={this.hashrateColumnStyle()}>
               {this.getModel().getCurrentHashrateString()}
             </bs.Button>
           </td>
@@ -77,7 +77,7 @@ var MinerRow = React.createBackboneClass({
         <td>{this.getModel().getDeviceString()}</td>
         <td>
           <bs.OverlayTrigger placement='bottom' trigger='click' overlay={this.renderStatusPopover()}>
-            <bs.Label className={this.stateLabelStyle()}>{this.getModel().get('state').toString()}</bs.Label>
+            <bs.Button bsSize='small' bsStyle={this.stateLabelStyle()}>{this.getModel().get('state').toString()}</bs.Button>
           </bs.OverlayTrigger>
         </td>
       </tr>

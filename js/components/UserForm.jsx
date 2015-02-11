@@ -11,7 +11,6 @@ var UserForm = React.createBackboneClass({
         <bs.Input type='static' label='Username' labelClassName='col-sm-3' wrapperClassName='col-sm-8' />
         <bs.Input type='static' label='Email' labelClassName='col-sm-3' wrapperClassName='col-sm-8' />
         <bs.Input type='text' label='Full Name' labelClassName='col-sm-3' wrapperClassName='col-sm-8' />
-
       </form>
     );
   }

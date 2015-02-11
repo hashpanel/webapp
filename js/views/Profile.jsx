@@ -3,10 +3,10 @@
 var bs = React.Bootstrap;
 
 var Profile = React.createClass({
+//<hashpanel.components.UserForm model={hashpanel.session.user} />
   render: function () {
     return (
       <bs.Panel header='User Profile'>
-        <hashpanel.components.UserForm model={hashpanel.session.user} />
       </bs.Panel>
     );
   }

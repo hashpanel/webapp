@@ -1,6 +1,7 @@
 module.exports = {
   HashrateWidget: require('./HashrateWidget.jsx'),
   Header: require('./Header.jsx'),
+  LoginForm: require('./LoginForm'),
   MinerDeleteConfirmationModal: require('./MinerDeleteConfirmationModal.jsx'),
   MinerForm: require('./MinerForm.jsx'),
   MinerHistoryChart: require('./MinerHistoryChart.jsx'),
