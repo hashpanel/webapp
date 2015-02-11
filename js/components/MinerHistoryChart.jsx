@@ -23,7 +23,7 @@ var MinerHistoryChart = React.createBackboneClass({
       .clipEdge(true)
       .x(function (d) {
         return new Date(d.x);
-      })
+      });
 
     this.props.chart.xAxis
       .showMaxMin(false)
