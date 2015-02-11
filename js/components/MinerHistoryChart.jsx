@@ -36,15 +36,20 @@ var MinerHistoryChart = React.createBackboneClass({
 
     this.props.svg = d3.select('#dashboard-miner-chart svg');
 
+    this.props.svg.selectAll('axis').attr('class', 'd3-axis');
+
     nv.utils.windowResize(this.props.chart.update);
     this.forceUpdate();
 
     return this.props.chart;
   },
   componentDidUpdate: function () {
+    var i = 0;
     var data = _.map(hashpanel.session.charts.minerHistory, function (data, name) {
+      i++;
       return {
         key: name,
+        color: require('../../lib/util').getBootstrapColor(i),
         values: data
       };
     });
