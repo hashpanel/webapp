@@ -4,6 +4,8 @@
 @import './override-variables.less';
 @import '../node_modules/font-awesome/less/font-awesome.less';
 @import (less) '../bower_components/nvd3/nv.d3.css';
+@import '../node_modules/react-bootstrap-select/less/bootstrap-select.less';
+
 
 @import './dashboard.less';
 @import './UserWidget.less';
@@ -59,4 +61,22 @@ text {
 
 .nvtooltip {
   background-color: @body-bg;
+}
+
+.selectpicker {
+  color: @input-color !important;
+  background-color: @input-bg !important;
+
+  * a {
+    color: @input-color;
+    //background-color: @input-bg !important;
+  }
+
+
+  /*
+  &:hover, &:active, &:hover, &:focus {
+    color: @input-color;
+    background-color: @input-bg;
+  }
+  */
 }

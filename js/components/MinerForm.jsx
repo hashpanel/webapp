@@ -14,7 +14,7 @@ var MinerForm = React.createBackboneClass({
       <form className='form-horizontal'>
         <h3>Miner Information</h3>
         <bs.Input type='text' label='Miner Name' labelClassName='col-sm-3' wrapperClassName='col-sm-8' />
-        <bs.Input type='select' label='Device' labelClassName='col-sm-3' wrapperClassName='col-sm-8' />
+        <hashpanel.components.DeviceList collection={new hashpanel.api.MinerDeviceCollection()} />
         <bs.Input label='Host + Port' labelClassName='col-sm-3' wrapperClassName='col-sm-8' help={this.state.hostHelp} >
           <bs.Row>
             <bs.Col sm={6}>
@@ -26,7 +26,7 @@ var MinerForm = React.createBackboneClass({
           </bs.Row>
         </bs.Input>
         <h3>Pool Information</h3>
-        <bs.Input type='select' label='Pool' labelClassName='col-sm-3' wrapperClassName='col-sm-8' />
+        <hashpanel.components.PoolList collection={new hashpanel.api.PoolCollection()} />
         <bs.Input type='text' label='Worker Name' labelClassName='col-sm-3' wrapperClassName='col-sm-8' />
         <bs.Input type='text' label='Worker Password' labelClassName='col-sm-3' wrapperClassName='col-sm-8' defaultValue='123' />
       </form>

@@ -10,9 +10,9 @@ var Miner = React.createBackboneClass({
   renderFooter: function () {
     return (
       <bs.ButtonToolbar>
-        <bs.Button bsStyle='primary' bsSize='small'onClick={this.handleSave}><span className='fa fa-check' />Save</bs.Button>
+        <bs.Button bsStyle='primary' onClick={this.handleSave}><span className='fa fa-check' />Save</bs.Button>
         <bs.ModalTrigger modal={<hashpanel.components.MinerDeleteConfirmationModal />}>
-          <bs.Button bsStyle='danger' bsSize='small'><span className='fa fa-remove' />Delete</bs.Button>
+          <bs.Button bsStyle='danger'><span className='fa fa-remove' />Delete</bs.Button>
         </bs.ModalTrigger>
       </bs.ButtonToolbar>
     );
