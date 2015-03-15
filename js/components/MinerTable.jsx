@@ -42,16 +42,23 @@ var MinerRow = React.createBackboneClass({
   renderStatusPopover: function () {
     var name = this.getModel().get('name');
     var state = this.getModel().get('state');
-    var errorMsg = "This means that the miner reported an error recently, or that we cannot contact it.";
-    var tempMsg = "This means that the miner has a higher temperature than its manufacturer recommends";
-    var okMsg = "This means that everything is looking good.";
+    var nascentMsg = 'The miner seems to have been recently added. Waiting for data.';
+    var errorMsg = 'This means that the miner reported an error recently, or that we cannot contact it.';
+    var tempMsg = 'This means that the miner has a higher temperature than its manufacturer recommends';
+    var okMsg = 'This means that everything is looking good.';
     var actualMsg = '';
+    if (!state) {
+      actualMsg = nascentMsg;
+      this.getModel().state = new hashpanel.api.MinerState({
+        success: true
+      });
+    }
     /*
     if (state.getTemperatureStatus()) {
 
     }
     */
-    if (state.get('success')) {
+    else if (state.get('success')) {
       actualMsg = okMsg;
     }
     else {
@@ -59,7 +66,7 @@ var MinerRow = React.createBackboneClass({
     }
     return (
       <bs.Popover title='Miner Status Details'>
-        <b>{name}</b> is reporting a status of "{state.toString()}". {actualMsg}
+        <b>{name}</b> is reporting a status of '{state.toString()}'. {actualMsg}
       </bs.Popover>
     );
   },

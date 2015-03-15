@@ -8,10 +8,6 @@ global.hashpanel = {
     widgets: { }
   },
 };
-hashpanel.components = require('./components');
-hashpanel.views = require('./views');
-
-hashpanel.router = require('./router.jsx');
 
 HashwareClient.create('http://localhost:1337/api/v1/backbonemodel')
   .then(function (api) {
@@ -19,6 +15,10 @@ HashwareClient.create('http://localhost:1337/api/v1/backbonemodel')
 
     hashpanel.session.users = new api.UserCollection();
     hashpanel.session.miners = new api.MinerCollection();
+
+    hashpanel.components = require('./components');
+    hashpanel.views = require('./views');
+    hashpanel.router = require('./router.jsx');
 
     return hashpanel.session.users
       .fetch({

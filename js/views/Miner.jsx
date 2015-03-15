@@ -5,7 +5,7 @@ var Link = React.Router.Link;
 
 var Miner = React.createBackboneClass({
   handleSave: function (event) {
-    console.log(event);
+    this.refs.form.save();
   },
   renderFooter: function () {
     return (
@@ -30,7 +30,7 @@ var Miner = React.createBackboneClass({
   render: function () {
     return (
       <bs.Panel header={this.renderHeader()} footer={this.renderFooter()}>
-        <hashpanel.components.MinerForm model={this.getModel()} />
+        <hashpanel.components.MinerForm ref='form' />
       </bs.Panel>
     );
   }
