@@ -18,7 +18,6 @@ var MinerHistoryChart = React.createBackboneClass({
   createChart: function () {
     this.props.chart = nv.models.stackedAreaChart()
       .useInteractiveGuideline(true)
-      .transitionDuration(250)
       .showControls(false)
       .clipEdge(true)
       .x(function (d) {

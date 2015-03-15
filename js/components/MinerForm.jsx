@@ -20,7 +20,6 @@ var MinerForm = React.createBackboneClass({
       miner: new hashpanel.api.Miner()
     };
     props.miner.get('workers').add(props.worker);
-    hashpanel.session.miners.add(props.miner);
     console.log(hashpanel.session.miners);
 
     return props;
@@ -61,6 +60,7 @@ var MinerForm = React.createBackboneClass({
     }
   },
   render: function () {
+//hashpanel.session.miners.add(props.miner);
     return (
       <form className='form-horizontal' onChange={this.handleFormChange}>
         <h3>Miner Information</h3>
