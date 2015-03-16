@@ -6,6 +6,7 @@ var moment = require('moment');
 var News = React.createClass({
   getInitialState: function () {
     return {
+      // XXX ahhhh
       rss: 'http://localhost:1337/api/v1/news',
       items: { }
     };
@@ -49,4 +50,3 @@ var News = React.createClass({
 });
 
 module.exports = News;
-
