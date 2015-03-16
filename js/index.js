@@ -28,10 +28,4 @@ HashwareClient.create('http://localhost:1337/api/v1/backbonemodel')
   .then(function () {
     hashpanel.session.user = hashpanel.session.users.at(0);
     hashpanel.router.start();
-
-    return hashpanel.session.miners.fetch({
-      data: {
-        populate: [ 'state', 'device', 'workers' ]
-      }
-    });
   });

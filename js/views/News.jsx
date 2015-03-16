@@ -20,20 +20,22 @@ var News = React.createClass({
   },
   componentDidMount: function () {
     var self = this;
-    $.get(this.state.rss, function (data) {
-      $(data).find('item').each(function () {
-        var item = $(this);
-        var url = item.find('link').text();
+    this.setState({
+      ajaxHandler: $.get(this.state.rss, function (data) {
+        $(data).find('item').each(function () {
+          var item = $(this);
+          var url = item.find('link').text();
 
-        var items = self.state.items;
-        items[url] = {
-          title: item.find('title').text(),
-          url: url,
-          summary: item.find('description').text().replace(/<(?:.|\n)*?>/gm, '').split('.')[0] + '.',
-          date: moment(new Date(item.find('pubDate').text())).format('dddd, MMMM Do YYYY')
-        };
-        self.setState({ items: items });
-      });
+          var items = self.state.items;
+          items[url] = {
+            title: item.find('title').text(),
+            url: url,
+            summary: item.find('description').text().replace(/<(?:.|\n)*?>/gm, '').split('.')[0] + '.',
+            date: moment(new Date(item.find('pubDate').text())).format('dddd, MMMM Do YYYY')
+          };
+          if (self.isMounted()) self.setState({ items: items });
+        });
+      })
     });
   },
   render: function () {
