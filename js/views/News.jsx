@@ -1,7 +1,6 @@
 /** @jsx React.DOM */
 
 var bs = React.Bootstrap;
-var moment = require('moment');
 
 var News = React.createClass({
   getInitialState: function () {
