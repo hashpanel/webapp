@@ -44,7 +44,7 @@ gulp.task('browserify-lib', function() {
     .bundle()
     .pipe(source('lib.js'))
     .pipe(buffer())
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(gulp.dest('./www/'));
 });
 
@@ -53,7 +53,7 @@ gulp.task('browserify-app', function () {
     .bundle()
     .pipe(source('hashpanel.js'))
     .pipe(buffer())
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(gulp.dest('./www/'));
 });
 
