@@ -47,12 +47,13 @@ var MinerRow = React.createBackboneClass({
     var tempMsg = 'This means that the miner has a higher temperature than its manufacturer recommends';
     var okMsg = 'This means that everything is looking good.';
     var actualMsg = '';
+
     if (!state) {
       actualMsg = nascentMsg;
-      this.getModel().state = new hashpanel.api.MinerState({
-        success: true
-      });
+      this.getModel().set('state', new hashpanel.api.MinerState({ success: true }));
+      state = this.getModel().get('state');
     }
+    
     /*
     if (state.getTemperatureStatus()) {
 

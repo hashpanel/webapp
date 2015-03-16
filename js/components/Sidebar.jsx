@@ -19,8 +19,12 @@ var Sidebar = React.createClass({
           <span className='fa fa-hdd-o fa-fw' />
           Miners
         </Link>
+        <Link to='logs' className='list-group-item'>
+          <span className='fa fa-list-alt fa-fw' />
+          System Logs
+        </Link>
         <Link to='news' className='list-group-item'>
-          <span className='fa fa-newspaper-o fa-fw' />
+          <span className='fa fa-rss fa-fw' />
           News
         </Link>
       </bs.ListGroup>

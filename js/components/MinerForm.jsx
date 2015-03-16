@@ -20,7 +20,6 @@ var MinerForm = React.createBackboneClass({
       miner: new hashpanel.api.Miner()
     };
     props.miner.get('workers').add(props.worker);
-    console.log(hashpanel.session.miners);
 
     return props;
   },

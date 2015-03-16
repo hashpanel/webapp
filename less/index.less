@@ -13,6 +13,13 @@
 @import './Sidebar.less';
 @import './MinerList.less';
 
+.list-group-item {
+  .list-group-item-heading {
+    // XXX cleanup
+    color: lighten(@brand-success, 15%) !important;
+  }
+}
+
 @fa-font-path: 'fonts/';
 
 [class*='col-sm-'] {
