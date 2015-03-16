@@ -9,18 +9,18 @@ var App = React.createClass({
       <div id='app'>
         <bs.Grid>
           <bs.Row>
-            <bs.Col sm={3} className='hidden-xs'>
+            <bs.Col sm={3} md={2} className='hidden-xs'>
               <hashpanel.components.UserWidget model={hashpanel.session.user} />
             </bs.Col>
-            <bs.Col sm={9}>
+            <bs.Col sm={9} md={10}>
               <hashpanel.components.Header />
             </bs.Col>
           </bs.Row>
           <bs.Row>
-            <bs.Col sm={3} className='hidden-xs'>
+            <bs.Col sm={3} md={2} className='hidden-xs'>
               <hashpanel.components.Sidebar />
             </bs.Col>
-            <bs.Col sm={9}>
+            <bs.Col sm={9} md={10}>
               <RouteHandler />
             </bs.Col>
           </bs.Row>

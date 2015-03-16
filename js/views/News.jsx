@@ -12,7 +12,6 @@ var News = React.createClass({
     };
   },
   renderNewsItem: function (item) {
-    console.log(item);
     return (
       <bs.ListGroupItem header={item.title} className='newsitem' href={item.url} target='_blank' hover>
         <p className='newsitem-date'>Published: {item.date}</p>

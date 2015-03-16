@@ -67,7 +67,7 @@ var MinerHistoryChart = React.createBackboneClass({
   },
   componentDidMount: function () {
     nv.addGraph(this.createChart);
-    this.forceUpdate();
+    this.onModelChange();
   },
   render: function () {
     return (
