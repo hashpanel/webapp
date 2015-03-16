@@ -31,7 +31,7 @@ HashwareClient.create('http://localhost:1337/api/v1/backbonemodel')
 
     return hashpanel.session.miners.fetch({
       data: {
-        populate: [ 'state', 'device' ]
+        populate: [ 'state', 'device', 'workers' ]
       }
     });
   });
