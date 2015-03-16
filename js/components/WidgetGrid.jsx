@@ -11,13 +11,13 @@ var WidgetGrid = React.createBackboneClass({
     this.forceUpdate();
   },
   componentDidUpdate: function () {
-    $(this.refs.revenueValue.getDOMNode()).text(hashpanel.session.widgets.revenue.toFixed(8));
+    $(this.refs.revenueValue.getDOMNode()).text(hashpanel.session.widgets.revenue.toFixed(7));
   },
   componentDidMount: function () {
     if (hashpanel.session.widgets.revenue) {
       this.forceUpdate();
     }
-    this.getCollection().getRevenue(moment.duration(1, 'day'))
+    this.getCollection().getRevenue(moment.duration(1, 'days'))
       .then(this.handleRevenueResponse);
   },
   render: function () {

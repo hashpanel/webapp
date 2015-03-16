@@ -27,15 +27,13 @@ var Sidebar = React.createClass({
           <span className='fa fa-rss fa-fw' />
           News
         </Link>
+        <bs.ListGroupItem href='https://hashpanel.github.io/support' target='_blank'>
+          <span className='fa fa-question-circle fa-fw' />
+          Support
+        </bs.ListGroupItem>
       </bs.ListGroup>
     );
   }
 });
-/*
-        <Link to='analysis' className='list-group-item'>
-          <span className='fa-line-chart fa-fw' />
-          Analysis
-        </Link>
-*/
 
 module.exports = Sidebar;

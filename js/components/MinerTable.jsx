@@ -75,6 +75,8 @@ var MinerRow = React.createBackboneClass({
     return (
       <tr>
         <td>{this.getModel().get('name')}</td>
+        <td>{this.getModel().getDeviceString()}</td>
+        <td>POOL</td>
         <bs.OverlayTrigger placement='bottom' trigger='click' overlay={this.renderHashratePopover()}>
           <td>
             <bs.Button bsSize='small' bsStyle={this.hashrateColumnStyle()}>
@@ -82,7 +84,6 @@ var MinerRow = React.createBackboneClass({
             </bs.Button>
           </td>
         </bs.OverlayTrigger>
-        <td>{this.getModel().getDeviceString()}</td>
         <td>
           <bs.OverlayTrigger placement='bottom' trigger='click' overlay={this.renderStatusPopover()}>
             <bs.Button bsSize='small' bsStyle={this.stateLabelStyle()}>{this.getModel().get('state').toString()}</bs.Button>
@@ -106,8 +107,9 @@ var MinerTable = React.createBackboneClass({
         <thead>
           <tr>
             <th>Name</th>
-            <th>Hashrate</th>
             <th>Device</th>
+            <th>Pool</th>
+            <th>Hashrate</th>
             <th>Status</th>
           </tr>
         </thead>

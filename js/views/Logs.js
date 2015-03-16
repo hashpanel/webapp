@@ -110,7 +110,6 @@ var Logs = React.createBackboneClass({
               status: (error && error.code) || 'OK'
             };
           }));
-          console.log(cleaned);
           this.setState({
             results: cleaned
           });
